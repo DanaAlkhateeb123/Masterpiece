@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Favorite Items | Nostalgia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="saved-favorites.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+</head>
+<body>
+    <div id="site-header"></div>
+    <main class="favorites-main">
+        <section class="favorites-intro" aria-labelledby="favorites-title">
+            <div class="favorites-title-row">
+                <h1 id="favorites-title">Favorite items</h1>
+            </div>
+
+            <div class="favorites-summary">
+                <p class="favorites-sub">A little collection of things worth remembering.</p>
+                <span class="favorites-count" id="favorites-count">4 saved pieces</span>
+            </div>
+        </section>
+
+        <section class="favorites-grid" id="favorites-list" aria-label="Your favorite items">
+            <article class="favorite-item" data-item="fav-sweater">
+                <div class="favorite-image-wrap">
+                    <img class="favorite-image" src="https://i.etsystatic.com/44692613/r/il/a94a98/6801900366/il_1588xN.6801900366_ryts.jpg" alt="Hand-knit cream wool sweater" loading="lazy">
+                    <button class="remove-button" type="button" aria-label="Remove Hand-knit Wool Sweater from favorites" title="Remove from favorites"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.2-8.8 10.2-8.8 10.2S3.2 14 3.2 8.8A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.4Z"/></svg></button>
+                </div>
+                <div class="favorite-info">
+                    <a class="favorite-title" href="../item-details/item-details.html?item=fav-sweater">Hand-knit Wool Sweater</a>
+                    <p class="favorite-seller">Sara Ahmad <span>·</span> Amman, Jordan</p>
+                    <div class="favorite-meta"><span class="favorite-price">$15.00</span><span class="favorite-condition">Very good</span></div>
+                </div>
+            </article>
+
+            <article class="favorite-item" data-item="fav-jacket">
+                <div class="favorite-image-wrap">
+                    <img class="favorite-image" src="https://th.bing.com/th/id/OIP.FfG1ubCM9ezNgGNZvTszSAHaHa?w=196&amp;h=196&amp;c=7&amp;r=0&amp;o=7&amp;dpr=1.3&amp;pid=1.7&amp;rm=3" alt="Vintage brown leather jacket" loading="lazy">
+                    <button class="remove-button" type="button" aria-label="Remove Vintage Leather Jacket from favorites" title="Remove from favorites"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.2-8.8 10.2-8.8 10.2S3.2 14 3.2 8.8A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.4Z"/></svg></button>
+                </div>
+                <div class="favorite-info">
+                    <a class="favorite-title" href="../item-details/item-details.html?item=fav-jacket">Vintage Leather Jacket</a>
+                    <p class="favorite-seller">Omar Ali <span>·</span> Amman, Jordan</p>
+                    <div class="favorite-meta"><span class="favorite-price">$25.00</span><span class="favorite-condition">Excellent</span></div>
+                </div>
+            </article>
+
+            <article class="favorite-item" data-item="fav-sofa">
+                <div class="favorite-image-wrap">
+                    <img class="favorite-image" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Soft beige two-seat sofa" loading="lazy">
+                    <button class="remove-button" type="button" aria-label="Remove Beige Two-Seat Sofa from favorites" title="Remove from favorites"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.2-8.8 10.2-8.8 10.2S3.2 14 3.2 8.8A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.4Z"/></svg></button>
+                </div>
+                <div class="favorite-info">
+                    <a class="favorite-title" href="../item-details/item-details.html?item=fav-sofa">Beige Two-Seat Sofa</a>
+                    <p class="favorite-seller">Hala Odeh <span>·</span> Amman, Jordan</p>
+                    <div class="favorite-meta"><span class="favorite-price">$320.00</span><span class="favorite-condition">Very good</span></div>
+                </div>
+            </article>
+
+            <article class="favorite-item" data-item="fav-board-game">
+                <div class="favorite-image-wrap">
+                    <img class="favorite-image" src="https://images.unsplash.com/photo-1720205836109-7bc7e4bb7d8c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Classic board game set up on a table" loading="lazy">
+                    <button class="remove-button" type="button" aria-label="Remove Classic Board Game from favorites" title="Remove from favorites"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.2-8.8 10.2-8.8 10.2S3.2 14 3.2 8.8A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.4Z"/></svg></button>
+                </div>
+                <div class="favorite-info">
+                    <a class="favorite-title" href="../item-details/item-details.html?item=fav-board-game">Classic Board Game</a>
+                    <p class="favorite-seller">Nour Haddad <span>·</span> Amman, Jordan</p>
+                    <div class="favorite-meta"><span class="favorite-price">$22.00</span><span class="favorite-condition">Good</span></div>
+                </div>
+            </article>
+        </section>
+
+        <p class="favorites-empty" id="favorites-empty" hidden>
+            Your favorites are waiting to be found. <a href="../categories/categories.html">Explore categories</a>
+        </p>
+    </main>
+    <script src="saved-favorites.js" defer></script>
+    <script src="../navbar/navbar.js"></script>
+    <script src="../shared/motion.js" defer></script>
+</body>
+</html>

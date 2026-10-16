@@ -1,0 +1,86 @@
+/* Admin dashboard - page-specific styles (shared pieces live in shared/dashboard.css) */
+
+.insight { margin-top: 18px; padding: 12px 14px; border-radius: var(--radius-md); background: var(--color-accent-tint); color: var(--color-primary-light); font-size: 12.5px; line-height: 1.5; }
+.insight b { color: var(--color-primary); }
+
+#perf-table table { width: 100%; }
+
+/* ---------- funnel ---------- */
+.funnel { display: grid; gap: 14px; }
+.funnel-step { display: grid; gap: 6px; }
+.funnel-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-size: 13px; }
+.funnel-row span { color: var(--color-text); }
+.funnel-row b { font-variant-numeric: tabular-nums; }
+.funnel-row em { margin-left: 8px; color: var(--color-muted); font-size: 11.5px; font-style: normal; }
+.funnel-bar { height: 22px; border-radius: 6px; background: #f3ebe5; overflow: hidden; }
+.funnel-bar i { display: block; transform: scaleX(0); height: 100%; border-radius: 0 6px 6px 0; background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary)); transform-origin: left; animation: nc-grow-x 1s var(--ease-out) both; animation-delay: var(--d, 0s); }
+.funnel-drop { margin-top: -6px; color: var(--color-muted); font-size: 11px; text-align: right; }
+
+/* ---------- auctions ---------- */
+.auction-list { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.auction { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto auto; align-items: center; gap: 14px; padding: 10px 12px; margin-inline: -12px; border-radius: var(--radius-md); transition: background var(--dur-fast) ease, transform var(--dur-base) var(--ease-out); }
+.auction:hover { background: var(--color-primary-tint); transform: translateX(3px); }
+.auction-img { width: 52px; height: 52px; border-radius: 12px; background: var(--ph); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .05); position: relative; overflow: hidden; }
+.auction-img::after { position: absolute; inset: 0; background: var(--gradient-sheen); transform: translateX(-100%); animation: auction-sheen 4.5s ease-in-out infinite; animation-delay: var(--d, 0s); content: ""; }
+@keyframes auction-sheen { 0%, 60% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+.auction-title { margin: 0; font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.auction-meta { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 3px; color: var(--color-muted); font-size: 11.5px; }
+.auction-meta span { display: inline-flex; align-items: center; gap: 4px; }
+.auction-meta svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.auction-bid { text-align: right; }
+.auction-bid strong { display: block; font-family: var(--font-heading); font-size: 17px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.auction-bid small { color: var(--color-muted); font-size: 11px; }
+.auction-bid strong.flash { animation: bid-flash 1.3s ease; }
+@keyframes bid-flash { 0% { color: var(--color-success); transform: scale(1.12); } 100% { color: inherit; transform: none; } }
+.timer { min-width: 74px; padding: 5px 10px; border-radius: var(--radius-pill); background: var(--color-tint); color: var(--color-primary); font-size: 12px; font-weight: 600; text-align: center; font-variant-numeric: tabular-nums; }
+.timer.is-soon { background: var(--color-error-bg); color: var(--color-error); animation: timer-pulse 1.6s ease-in-out infinite; }
+@keyframes timer-pulse { 50% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-error) 14%, transparent); } }
+@media (max-width: 640px) { .auction { grid-template-columns: 44px minmax(0, 1fr) auto; } .auction .timer { grid-column: 2 / 4; justify-self: start; } .auction-img { width: 44px; height: 44px; } }
+
+.mini-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--color-card-border); }
+.mini-stats strong { display: block; font-family: var(--font-heading); font-size: 22px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.mini-stats span { color: var(--color-muted); font-size: 11.5px; }
+
+/* ---------- AI panel ---------- */
+.ai-stats { display: grid; gap: 16px; }
+.ai-stat-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 13px; }
+.ai-stat-row span { color: color-mix(in srgb, var(--color-white) 78%, transparent); }
+.ai-stat-row strong { font-family: var(--font-heading); font-size: 20px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.ai-stat .bar-track { margin-top: 7px; background: color-mix(in srgb, var(--color-white) 14%, transparent); }
+.ai-find { margin-top: 22px; padding: 14px; border: 1px solid color-mix(in srgb, var(--color-accent-light) 28%, transparent); border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-white) 7%, transparent); }
+.ai-find-title { margin: 0 0 10px; color: var(--color-accent-light); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.ai-find-row { display: flex; gap: 14px; align-items: center; }
+.ai-find-img { width: 56px; height: 56px; flex: none; border-radius: 12px; background: radial-gradient(circle at 30% 28%, #f1d9a0, #b88932 55%, #6e4b17); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .2); animation: float-y 5s ease-in-out infinite; }
+.ai-find strong { display: block; font-size: 14px; }
+.ai-find small { display: block; color: color-mix(in srgb, var(--color-white) 65%, transparent); font-size: 12px; }
+.ai-find-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; color: color-mix(in srgb, var(--color-white) 70%, transparent); font-size: 12px; }
+.ai-find-meta b { color: var(--color-accent-light); }
+
+/* ---------- moderation queue ---------- */
+.queue { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.queue li { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-card-border) 60%, transparent); transition: opacity .35s ease, transform .35s var(--ease-out), max-height .4s ease .1s, padding .4s ease .1s; max-height: 90px; }
+.queue li:last-child { border-bottom: 0; }
+.queue li.is-leaving { max-height: 0; padding-block: 0; opacity: 0; transform: translateX(24px); overflow: hidden; }
+.queue .ph { width: 40px; height: 40px; border-radius: 10px; background: var(--ph); }
+.queue strong { display: block; font-size: 13.5px; }
+.queue small { display: block; color: var(--color-muted); font-size: 11.5px; }
+.queue-actions { display: flex; gap: 6px; }
+.icon-btn { display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid var(--color-card-border); border-radius: 50%; background: var(--color-card); }
+.icon-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.icon-btn.ok { color: var(--color-success); } .icon-btn.ok:hover { background: var(--color-success); border-color: var(--color-success); color: #fff; }
+.icon-btn.no { color: var(--color-error); } .icon-btn.no:hover { background: var(--color-error); border-color: var(--color-error); color: #fff; }
+
+/* ---------- sellers ---------- */
+.sellers { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; counter-reset: s; }
+.sellers li { display: grid; grid-template-columns: 22px 34px minmax(0, 1fr) auto; align-items: center; gap: 10px; counter-increment: s; }
+.sellers li::before { color: var(--color-accent-dark); font-family: var(--font-heading); font-size: 16px; content: counter(s); }
+.sellers strong { display: block; font-size: 13.5px; }
+.sellers small { color: var(--color-muted); font-size: 11.5px; }
+.sellers .amount { font-weight: 600; font-variant-numeric: tabular-nums; font-size: 13.5px; text-align: right; }
+.sellers .amount small { display: block; font-weight: 400; }
+
+/* ---------- health ---------- */
+.health { display: grid; gap: 16px; }
+.health-row { display: grid; gap: 6px; font-size: 12.5px; }
+.health-row div { display: flex; justify-content: space-between; gap: 8px; }
+.health-row b { font-variant-numeric: tabular-nums; }

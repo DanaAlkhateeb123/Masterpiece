@@ -1,0 +1,94 @@
+﻿/* Site footer - mount it with <div id="site-footer"></div> + footer/footer.js */
+.site-footer {
+    position: relative;
+    margin-top: var(--space-8);
+    padding: 56px 0 36px;
+    overflow: hidden;
+    background: var(--gradient-primary);
+    color: color-mix(in srgb, var(--color-white) 78%, transparent);
+    text-align: center;
+}
+
+/* golden hairline across the top */
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+}
+
+.footer-container {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+    width: min(var(--container-max), calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.footer-brand {
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    line-height: 1;
+}
+
+.footer-brand span { color: var(--color-accent); }
+.footer-brand:hover { color: var(--color-accent-light); }
+
+.site-footer p {
+    margin: 0;
+    color: color-mix(in srgb, var(--color-white) 70%, transparent);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    letter-spacing: .02em;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 30px;
+    margin-top: 10px;
+    padding-top: 22px;
+    border-top: 1px solid color-mix(in srgb, var(--color-accent) 28%, transparent);
+    width: min(520px, 100%);
+}
+
+.footer-links a {
+    position: relative;
+    padding-block: 4px;
+    color: color-mix(in srgb, var(--color-white) 86%, transparent);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+}
+
+.footer-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--color-accent-light);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur-base) var(--ease-out);
+}
+
+.footer-links a:hover { color: var(--color-accent-light); }
+.footer-links a:hover::after { transform: scaleX(1); }
+
+.site-footer small {
+    margin-top: 6px;
+    color: color-mix(in srgb, var(--color-white) 48%, transparent);
+    font-size: 11px;
+    letter-spacing: .08em;
+}

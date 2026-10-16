@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Nostalgia</title>
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+    <link rel="stylesheet" href="../shared/dashboard.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <!-- Shown to everyone who is not the admin -->
+    <main class="gate" id="admin-gate" hidden>
+        <div class="gate-card">
+            <div class="gate-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5M12 15v2"/></svg></div>
+            <h1>Admin access only</h1>
+            <p id="gate-text">This area is reserved for Nostalgia administrators. Please sign in with the admin account to continue.</p>
+            <a class="d-btn" id="gate-action" href="../login/login.html">Sign in</a>
+        </div>
+    </main>
+
+    <!-- The dashboard itself (only revealed for the admin account) -->
+    <main class="dash" id="admin-app" hidden>
+        <header class="dash-head">
+            <div>
+                <p class="dash-eyebrow">Admin · Overview</p>
+                <h1 class="dash-title">Good <span id="greet-part">morning</span>, <em id="admin-name">Admin</em></h1>
+                <p class="dash-sub">Everything happening across the marketplace and the Antique &amp; Vintage auctions — in one calm place.</p>
+            </div>
+            <div class="dash-actions">
+                <span class="live-pill"><span class="live-dot"></span>Live · <span id="clock">--:--</span></span>
+                <div class="seg" id="range-seg" role="group" aria-label="Date range">
+                    <button type="button" data-range="7d" aria-pressed="false">7D</button>
+                    <button type="button" data-range="30d" aria-pressed="true">30D</button>
+                    <button type="button" data-range="90d" aria-pressed="false">90D</button>
+                    <button type="button" data-range="12m" aria-pressed="false">12M</button>
+                </div>
+                <button class="d-btn d-btn--ghost" id="export-btn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg>Export CSV</button>
+            </div>
+        </header>
+
+        <!-- KPIs -->
+        <section class="grid" id="kpi-grid" aria-label="Key figures"></section>
+
+        <!-- Revenue + channel split -->
+        <section class="grid">
+            <article class="panel span-8">
+                <div class="panel-head">
+                    <div><h3>Performance</h3><p id="perf-sub">Compared with the previous period</p></div>
+                    <div class="panel-tools">
+                        <div class="seg" id="metric-seg" role="group" aria-label="Metric">
+                            <button type="button" data-metric="gmv" aria-pressed="true">Sales</button>
+                            <button type="button" data-metric="orders" aria-pressed="false">Orders</button>
+                            <button type="button" data-metric="users" aria-pressed="false">New members</button>
+                        </div>
+                        <button class="d-btn d-btn--ghost d-btn--sm" id="table-toggle" type="button" aria-pressed="false">Table</button>
+                    </div>
+                </div>
+                <div class="chart-legend" id="perf-legend"></div>
+                <div id="perf-chart"></div>
+                <div class="table-wrap" id="perf-table" hidden></div>
+            </article>
+
+            <article class="panel span-4">
+                <div class="panel-head"><div><h3>Sales by channel</h3><p>Where the money comes from</p></div></div>
+                <div id="channel-donut"></div>
+                <div class="insight" id="channel-insight"></div>
+            </article>
+        </section>
+
+        <!-- Funnel / categories / cities -->
+        <section class="grid">
+            <article class="panel span-4">
+                <div class="panel-head"><div><h3>Buying journey</h3><p>From first visit to paid order</p></div></div>
+                <div class="funnel" id="funnel"></div>
+            </article>
+            <article class="panel span-4">
+                <div class="panel-head"><div><h3>Top categories</h3><p>Sales in the selected period</p></div></div>
+                <div id="category-bars"></div>
+            </article>
+            <article class="panel span-4">
+                <div class="panel-head"><div><h3>Orders by city</h3><p>Delivery destinations in Jordan</p></div></div>
+                <div id="city-bars"></div>
+            </article>
+        </section>
+
+        <!-- Auctions -->
+        <section class="grid">
+            <article class="panel span-7">
+                <div class="panel-head">
+                    <div><h3>Live auctions</h3><p>Antique &amp; Vintage — ending soonest first</p></div>
+                    <span class="pill pill--gold" id="auction-count">6 live</span>
+                </div>
+                <ul class="auction-list" id="auction-list"></ul>
+            </article>
+            <article class="panel span-5">
+                <div class="panel-head"><div><h3>Bidding activity</h3><p>Bids placed per hour · last 24 hours</p></div></div>
+                <div id="bids-chart"></div>
+                <div class="mini-stats">
+                    <div><strong id="ms-bids">0</strong><span>Bids today</span></div>
+                    <div><strong id="ms-bidders">0</strong><span>Active bidders</span></div>
+                    <div><strong id="ms-uplift">0%</strong><span>Avg. over opening bid</span></div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Heatmap + AI -->
+        <section class="grid">
+            <article class="panel span-7">
+                <div class="panel-head"><div><h3>When people shop</h3><p>Visits by day and hour (Amman time) — plan promotions and auction endings around the peaks</p></div></div>
+                <div id="heatmap"></div>
+            </article>
+            <article class="panel panel--dark span-5" id="ai-panel">
+                <div class="panel-head"><div><h3>Nostalgia AI assistant</h3><p>Classification, price suggestions and antique identification</p></div><span class="pill pill--gold">Beta</span></div>
+                <div class="ai-stats" id="ai-stats"></div>
+                <div class="ai-find">
+                    <p class="ai-find-title">Latest antique identification</p>
+                    <div class="ai-find-row">
+                        <span class="ai-find-img"></span>
+                        <div>
+                            <strong>Brass dallah coffee pot</strong>
+                            <small>Levant, c. 1920s · hand-engraved</small>
+                            <div class="ai-find-meta"><span>Confidence <b>93%</b></span><span>Suggested price <b>$140–$190</b></span></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Orders + feed -->
+        <section class="grid">
+            <article class="panel span-8">
+                <div class="panel-head">
+                    <div><h3>Recent orders</h3><p>Latest transactions across the marketplace</p></div>
+                    <div class="toolbar">
+                        <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="order-search" type="search" placeholder="Search order, item or buyer" aria-label="Search orders"></label>
+                        <select class="select" id="order-status" aria-label="Filter by status">
+                            <option value="all">All statuses</option><option>Paid</option><option>Preparing</option><option>Shipped</option><option>Delivered</option><option>Disputed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table class="dtable">
+                        <thead><tr><th>Order</th><th>Item</th><th>Buyer</th><th>Seller</th><th class="num">Amount</th><th>Status</th><th>Date</th></tr></thead>
+                        <tbody id="orders-body"></tbody>
+                    </table>
+                </div>
+                <p class="empty" id="orders-empty" hidden>No orders match your search.</p>
+            </article>
+            <article class="panel span-4">
+                <div class="panel-head"><div><h3>Live activity</h3><p>What's happening right now</p></div><span class="live-dot"></span></div>
+                <ul class="feed" id="feed"></ul>
+            </article>
+        </section>
+
+        <!-- Moderation / sellers / health -->
+        <section class="grid">
+            <article class="panel span-5">
+                <div class="panel-head"><div><h3>Needs review</h3><p>Listings the AI flagged for a human look</p></div><span class="pill pill--warning" id="queue-count">5 pending</span></div>
+                <ul class="queue" id="queue"></ul>
+            </article>
+            <article class="panel span-4">
+                <div class="panel-head"><div><h3>Top sellers</h3><p>By sales this period</p></div></div>
+                <ol class="sellers" id="sellers"></ol>
+            </article>
+            <article class="panel span-3">
+                <div class="panel-head"><div><h3>Marketplace health</h3><p>Trust &amp; service quality</p></div></div>
+                <div class="health" id="health"></div>
+            </article>
+        </section>
+    </main>
+
+    <div class="toast-stack" id="toasts" aria-live="polite"></div>
+
+    <script src="../shared/auth.js"></script>
+    <script src="../navbar/navbar.js"></script>
+    <script src="../shared/charts.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script src="../shared/motion.js" defer></script>
+</body>
+</html>

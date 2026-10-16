@@ -1,0 +1,38 @@
+/* My Listings - page styles (shared pieces: shared/dashboard.css) */
+.list-panel { margin-bottom: 20px; }
+.chips { margin-bottom: 20px; }
+.insights { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.insights li { padding: 12px 14px; border: 1px solid color-mix(in srgb, var(--color-accent-light) 24%, transparent); border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-white) 7%, transparent); font-size: 13px; transition: transform var(--dur-base) var(--ease-out), background var(--dur-base) ease; }
+.insights li:hover { transform: translateX(4px); background: color-mix(in srgb, var(--color-white) 12%, transparent); }
+.insights strong { display: block; margin-bottom: 2px; }
+.insights span { color: color-mix(in srgb, var(--color-white) 70%, transparent); font-size: 12px; }
+.insights b { color: var(--color-accent-light); }
+
+.listing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.lcard { position: relative; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); background: var(--color-card); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) ease, opacity .35s ease; animation: dash-rise .6s var(--ease-out) both; animation-delay: var(--d, 0s); }
+.lcard:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--color-accent) 55%, transparent); box-shadow: var(--shadow-hover); }
+.lcard.is-leaving { opacity: 0; transform: scale(.94); }
+.lcard-img { position: relative; aspect-ratio: 4 / 3; background: var(--ph); overflow: hidden; }
+.lcard-img::before { position: absolute; inset: 0; background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, .45), transparent 60%); content: ""; transition: transform 1.2s var(--ease-out); }
+.lcard:hover .lcard-img::before { transform: scale(1.25); }
+.lcard-img svg { position: absolute; top: 50%; left: 50%; width: 38%; height: 38%; transform: translate(-50%, -50%); fill: none; stroke: rgba(61, 35, 38, .5); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; transition: transform 1.2s var(--ease-out); }
+.lcard:hover .lcard-img svg { transform: translate(-50%, -50%) scale(1.12); }
+.lcard-badges { position: absolute; top: 12px; left: 12px; display: flex; gap: 6px; }
+.lcard-badges .pill { background: color-mix(in srgb, var(--color-white) 92%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.lcard-body { display: grid; flex: 1; gap: 12px; padding: 16px 16px 14px; }
+.lcard-title { margin: 0; font-family: var(--font-heading); font-size: 17px; }
+.lcard-price { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.lcard-price strong { font-family: var(--font-heading); font-size: 20px; font-weight: 500; }
+.lcard-price small { color: var(--color-muted); font-size: 12px; }
+.lcard-stats { display: flex; align-items: center; gap: 14px; color: var(--color-muted); font-size: 12px; }
+.lcard-stats span { display: inline-flex; align-items: center; gap: 5px; }
+.lcard-stats svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.lcard-spark { flex: none; width: 70px; height: 26px; margin-left: auto; }
+.lcard-auction { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 9px 12px; border-radius: var(--radius-md); background: var(--color-accent-tint); font-size: 12.5px; }
+.lcard-auction .timer { min-width: 0; padding: 3px 10px; background: var(--color-white); }
+.lcard-actions { display: flex; gap: 8px; margin-top: auto; }
+.lcard-actions .d-btn { flex: 1; justify-content: center; }
+.lcard-actions .icon-btn { flex: none; }
+.lcard-actions .icon-btn:hover { background: var(--color-error); border-color: var(--color-error); color: #fff; }
+.lcard-actions .icon-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.lcard-ai { padding: 8px 12px; border-radius: var(--radius-md); background: var(--color-info-bg); color: var(--color-info); font-size: 12px; }

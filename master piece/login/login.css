@@ -1,0 +1,513 @@
+﻿/* Login / register page */
+
+.auth-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 82px);
+}
+
+/* ---------- Left: animated antiques panel ---------- */
+.auth-hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 640px;
+    padding: 32px;
+    overflow: hidden;
+    background:
+        radial-gradient(90% 60% at 50% 34%, color-mix(in srgb, var(--color-primary-light) 70%, transparent), transparent 70%),
+        var(--gradient-primary);
+    color: var(--color-white);
+    user-select: none;
+}
+
+/* soft vignette + darker foot so the text always reads */
+.auth-hero-overlay {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(120% 90% at 50% 38%, transparent 45%, color-mix(in srgb, var(--color-primary-deep) 75%, transparent) 100%),
+        linear-gradient(to top, color-mix(in srgb, var(--color-primary-deep) 70%, transparent), transparent 42%);
+}
+
+/* ----- the stage that holds the animation ----- */
+.hero-stage {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(250px, 46vh, 520px);
+    margin-bottom: 16px;
+}
+
+.stage-glow {
+    position: absolute;
+    width: min(88%, 520px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 32%, transparent), transparent 66%);
+    animation: stage-breathe 7s ease-in-out infinite alternate;
+}
+
+@keyframes stage-breathe {
+    from { opacity: .55; transform: scale(.94); }
+    to { opacity: 1; transform: scale(1.06); }
+}
+
+/* slowly turning gilded rings behind the clock */
+.stage-rings {
+    position: absolute;
+    width: min(96%, 560px);
+    aspect-ratio: 1;
+    overflow: visible;
+}
+
+.ring {
+    fill: none;
+    stroke: var(--color-accent);
+    transform-origin: 300px 300px;
+}
+
+.ring--dash { stroke-width: 1; stroke-dasharray: 2 11; opacity: .55; animation: spin 120s linear infinite; }
+.ring--thin { stroke-width: .8; opacity: .22; animation: spin 180s linear infinite reverse; }
+.ring--dots { stroke-width: 1.4; stroke-dasharray: .5 18; stroke-linecap: round; opacity: .5; animation: spin 90s linear infinite reverse; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* a few drifting specks of gold dust */
+.dust { position: absolute; inset: 0; pointer-events: none; }
+
+.dust i {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--s);
+    height: var(--s);
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    box-shadow: 0 0 8px 1px color-mix(in srgb, var(--color-accent) 70%, transparent);
+    opacity: 0;
+    animation: dust-rise var(--d) ease-in-out var(--l) infinite;
+}
+
+@keyframes dust-rise {
+    0% { opacity: 0; transform: translate3d(0, 0, 0); }
+    20% { opacity: .85; }
+    80% { opacity: .5; }
+    100% { opacity: 0; transform: translate3d(14px, -120px, 0); }
+}
+
+/* ----- the antique wall clock ----- */
+.hero-clock {
+    position: relative;
+    height: clamp(250px, 46vh, 520px);
+    width: auto;
+    aspect-ratio: 400 / 580;
+    overflow: visible;
+    filter: drop-shadow(0 24px 38px color-mix(in srgb, var(--color-primary-deep) 70%, transparent));
+}
+
+.gs-1 { stop-color: var(--color-accent-light); }
+.gs-2 { stop-color: var(--color-accent); }
+.gs-3 { stop-color: var(--color-accent-dark); }
+.fs-1 { stop-color: color-mix(in srgb, var(--color-accent-light) 22%, var(--color-primary-deep)); }
+.fs-2 { stop-color: var(--color-primary-deep); }
+
+.cl-case { fill: color-mix(in srgb, var(--color-primary-deep) 78%, transparent); stroke: url(#clockGold); stroke-width: 2; stroke-linejoin: round; }
+.cl-line { fill: none; stroke: url(#clockGold); stroke-width: 1.6; stroke-linecap: round; }
+.cl-line--soft { stroke-width: .8; opacity: .55; }
+.cl-glass { fill: color-mix(in srgb, var(--color-white) 4%, transparent); stroke: var(--color-accent); stroke-width: .8; opacity: .8; }
+.cl-glint { fill: color-mix(in srgb, var(--color-white) 8%, transparent); }
+.cl-gold-fill { fill: url(#clockGold); }
+.cl-face { fill: url(#clockFace); }
+.cl-bezel { fill: none; stroke: url(#clockGold); stroke-width: 4; }
+.cl-tick { stroke: var(--color-accent-light); stroke-width: .8; stroke-linecap: round; opacity: .6; }
+.cl-tick--major { stroke-width: 2; opacity: .95; }
+
+.cl-num {
+    fill: var(--color-accent-light);
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    text-anchor: middle;
+    dominant-baseline: central;
+}
+
+.cl-brand {
+    fill: var(--color-accent);
+    font-family: var(--font-body);
+    font-size: 6.5px;
+    font-weight: 600;
+    letter-spacing: .4em;
+    text-anchor: middle;
+    opacity: .85;
+}
+
+.hand { transform-origin: 200px 190px; transform-box: view-box; }
+.hand path, .hand circle { fill: var(--color-accent-light); stroke: var(--color-primary-deep); stroke-width: .6; }
+.hand .cl-sec { fill: none; stroke: var(--color-accent); stroke-width: 1.2; }
+.hand-second circle { fill: var(--color-accent); }
+
+.hand-hour { animation: spin 43200s linear infinite; }
+.hand-minute { animation: spin 3600s linear infinite; }
+.hand-second { animation: spin 60s steps(60, end) infinite; }
+
+.cl-pin { fill: var(--color-primary-deep); }
+
+.pendulum {
+    transform-origin: 200px 352px;
+    transform-box: view-box;
+    animation: pendulum-swing 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes pendulum-swing {
+    from { transform: rotate(-7deg); }
+    to { transform: rotate(7deg); }
+}
+
+.cl-rod { fill: none; stroke: var(--color-accent); stroke-width: 2; stroke-linecap: round; }
+.cl-bob { fill: url(#clockGold); stroke: var(--color-accent-dark); stroke-width: 1.2; }
+.cl-bob-ring { fill: none; stroke: var(--color-primary-deep); stroke-width: 1.2; opacity: .6; }
+
+@media (prefers-reduced-motion: reduce) {
+    .stage-glow, .ring, .dust i, .hand, .pendulum { animation: none !important; }
+    .dust { display: none; }
+}
+
+/* ----- welcome text ----- */
+.auth-hero-content {
+    position: relative;
+    z-index: 3;
+    width: min(100%, 34rem);
+    margin-inline: auto;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.auth-hero h1 {
+    margin: 0;
+    font-size: 2.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--color-white);
+}
+
+.auth-hero-logo {
+    color: var(--color-accent-light);
+    font-family: var(--font-logo);
+    font-size: 1.25em;
+    letter-spacing: normal;
+}
+
+.auth-hero p {
+    margin: 12px 0 0;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--color-white) 78%, transparent);
+}
+
+.desktop-only { display: none; }
+
+.auth-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 30px;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.auth-features li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: color-mix(in srgb, var(--color-white) 88%, transparent);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+}
+
+.auth-feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 55%, transparent);
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-white) 7%, transparent);
+    transition: transform var(--dur-base) var(--ease-out), background var(--dur-base) ease, border-color var(--dur-base) ease;
+}
+
+.auth-features li:hover .auth-feature-icon {
+    transform: translateY(-3px);
+    border-color: var(--color-accent-light);
+    background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+}
+
+.auth-feature-icon .icon { width: 20px; height: 20px; stroke-width: 1.75; }
+
+/* ---------- Right: form panel ---------- */
+.auth-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    background: var(--color-background);
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 440px;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 48px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--color-card-border);
+}
+
+.auth-tab {
+    position: relative;
+    padding: 0 0 12px;
+    background: none;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-muted);
+    transition: color 0.2s ease;
+}
+
+.auth-tab:hover { color: var(--color-text); }
+.auth-tab.is-active { color: var(--color-text); }
+
+.auth-tab.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: var(--color-primary);
+}
+
+.auth-form {
+    display: grid;
+    gap: 24px;
+}
+
+.auth-field {
+    display: grid;
+    gap: 8px;
+}
+
+.auth-field label { font-size: 14px; }
+
+.auth-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-input::placeholder { color: #A79B98; }
+
+.auth-input:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-secondary) 12%, transparent);
+}
+
+.password-wrap { position: relative; }
+.password-wrap .auth-input { padding-right: 44px; }
+
+.password-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    background: none;
+    border: none;
+    color: var(--color-muted);
+    transition: color 0.2s ease;
+}
+
+.password-toggle:hover { color: var(--color-text); }
+.password-toggle .icon { width: 20px; height: 20px; }
+
+.forgot-link {
+    justify-self: end;
+    margin-top: -12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-secondary);
+}
+
+.forgot-link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.auth-submit {
+    margin-top: 8px;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+}
+
+.auth-divider {
+    position: relative;
+    margin: 32px 0;
+    text-align: center;
+    font-size: 12px;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--color-card-border);
+}
+
+.auth-divider span {
+    position: relative;
+    padding: 0 16px;
+    background: var(--color-background);
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+}
+
+.auth-social {
+    display: grid;
+    gap: 12px;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: 13px;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.social-button:hover {
+    background: var(--color-surface);
+    border-color: color-mix(in srgb, var(--color-secondary) 40%, transparent);
+}
+
+.social-button .icon { width: 16px; height: 16px; }
+.facebook-icon { color: #1877F2; }
+
+.auth-terms {
+    margin: 48px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-card-border);
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--color-muted);
+}
+
+.auth-terms a { text-decoration: underline; }
+.auth-terms a:hover { color: var(--color-text); }
+
+@media (min-width: 640px) {
+    .auth-hero { padding: 48px; }
+    .auth-hero p { font-size: 1.125rem; }
+    .auth-hero h1 { font-size: 2.6rem; }
+    .desktop-only { display: inline; }
+    .auth-panel { padding-inline: 48px; }
+    .social-button { font-size: 14px; }
+}
+
+@media (min-width: 1024px) {
+    .auth-layout { flex-direction: row; }
+    .auth-hero { position: sticky; top: 0; align-self: flex-start; width: 48%; height: 100vh; min-height: 100vh; padding: 64px; }
+    .auth-panel { width: 52%; padding: 64px; }
+}
+
+@media (min-width: 1280px) {
+    .auth-hero { width: 50%; padding: 80px; }
+    .auth-panel { width: 50%; padding-inline: 96px; }
+}
+
+.auth-heading {
+    margin: 0 0 24px;
+    color: var(--color-text);
+    font-size: clamp(25px, 3vw, 32px);
+}
+.auth-feedback { margin: -10px 0 18px; padding: 10px 12px; border: 1px solid color-mix(in srgb, var(--color-error) 20%, transparent); border-radius: 10px; background: #fff5f3; color: #9b3428; font-size: 12px; line-height: 1.5; }
+.auth-field label {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+.auth-field label span {
+    color: var(--color-muted);
+    font-size: 12px;
+}
+.auth-help { display: grid; justify-items: end; gap: 8px; margin-top: -12px; }
+.auth-help .forgot-link { justify-self: end; margin: 0; }
+.auth-contact-note {
+    margin: 14px 0 0;
+    color: var(--color-muted);
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+}
+.auth-feature-icon img { width: 20px; height: 20px; object-fit: contain; }
+.social-icon { width: 18px; height: 18px; object-fit: contain; }
+
+
+@media (max-width: 1000px) { .auth-layout { min-height: calc(100vh - 132px); } }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1024px) and (max-height: 720px) {
+    .auth-hero { padding-block: 36px; }
+}

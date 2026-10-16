@@ -1,0 +1,31 @@
+﻿<header class="site-header">
+    <nav class="nav-container" aria-label="Main navigation">
+        <a class="nav-brand" href="../home/home.html" aria-label="Nostalgia — where memories live">
+            <span class="brand-name"><span class="brand-initial">N</span><span>ostalgia</span></span>
+            <span class="brand-tagline">where memories live</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav-links">☰</button>
+        <div class="nav-links" id="main-nav-links">
+            <a href="../categories/categories.html" data-page="categories">Explore</a>
+            <a href="../selling/selling.html" data-page="selling">Sell with us</a>
+            <a href="../about/about.html" data-page="about">About</a>
+        </div>
+        <form class="nav-search" action="../categories/categories.html" method="get" role="search">
+            <label class="visually-hidden" for="site-search">Search Nostalgia</label>
+            <input id="site-search" type="search" name="search" placeholder="Search for something special..." autocomplete="off">
+            <button type="submit" aria-label="Search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+            </button>
+        </form>
+        <div class="nav-actions">
+            <a class="nav-sign-in" href="../login/login.html" data-page="login">Sign in</a>
+            <button class="nav-user-trigger" id="nav-user-trigger" type="button" aria-label="Open account menu" aria-controls="account-sidebar" aria-expanded="false" hidden>
+                <span class="nav-user-avatar"><img id="nav-user-avatar-image" alt="" hidden><span id="nav-user-avatar-initials">N</span></span>
+                <span class="nav-user-name" id="nav-user-name"></span>
+            </button>
+            <a class="nav-favorites" href="../saved-favorites/saved-favorites.html" data-page="saved-favorites" aria-label="Favorites" title="Favorites">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.2-8.8 10.2-8.8 10.2S3.2 14 3.2 8.8A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.4Z"></path></svg>
+            </a>
+        </div>
+    </nav>
+</header>

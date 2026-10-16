@@ -1,0 +1,79 @@
+.profile-setup-dialog {
+    width: min(760px, calc(100% - 28px));
+    max-width: none;
+    max-height: calc(100dvh - 24px);
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 38%, var(--color-card-border));
+    border-radius: 24px;
+    background: var(--color-background);
+    color: var(--color-text);
+    box-shadow: 0 28px 90px color-mix(in srgb, var(--color-primary) 28%, transparent), inset 0 1px var(--color-white);
+}
+
+.profile-setup-dialog::backdrop {
+    background: color-mix(in srgb, var(--color-primary) 58%, transparent);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.profile-setup-dialog .profile-main {
+    display: block;
+    min-height: 0;
+    padding: 18px 30px 16px;
+    background: radial-gradient(ellipse at 8% 12%, color-mix(in srgb, var(--color-accent) 8%, transparent), transparent 30rem), var(--color-background);
+}
+
+.profile-setup-dialog .profile-wrap { width: 100%; }
+.profile-setup-dialog .steps { margin-bottom: 8px; padding-block: 5px; }
+.profile-setup-dialog .profile-intro { margin-bottom: 9px; }
+.profile-setup-dialog .profile-intro::before { margin-bottom: 3px; }
+.profile-setup-dialog .profile-intro h1 { margin-bottom: 4px; font-size: clamp(1.55rem, 4vw, 2rem); }
+.profile-setup-dialog .profile-intro p { font-size: 12px; }
+.profile-setup-dialog .profile-form { gap: 7px 14px; }
+.profile-setup-dialog .form-label { margin-bottom: 3px; font-size: 11px; }
+.profile-setup-dialog .photo-row { min-height: 58px; padding-block: 3px; }
+.profile-setup-dialog .photo-upload { width: 54px; height: 54px; flex-basis: 54px; }
+.profile-setup-dialog .photo-empty { gap: 2px; font-size: 8px; }
+.profile-setup-dialog .photo-empty .icon { width: 18px; height: 18px; }
+.profile-setup-dialog .photo-hint.card { min-height: 48px; }
+.profile-setup-dialog .photo-hint p { font-size: 11px; }
+.profile-setup-dialog .field { min-height: 38px; font-size: 12px; }
+.profile-setup-dialog .save-button { min-height: 38px; margin-top: 0; padding-block: 8px; }
+.profile-setup-dialog .profile-skip-button { grid-column: 1 / -1; justify-self: center; margin-top: -5px; padding: 4px 11px; border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--color-muted); font-size: 11px; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.profile-setup-dialog .profile-skip-button:hover { background: color-mix(in srgb, var(--color-primary) 7%, transparent); color: var(--color-primary); }
+
+@media (max-width: 620px) {
+    .profile-setup-dialog { width: calc(100% - 16px); max-height: calc(100dvh - 16px); border-radius: 18px; }
+    .profile-setup-dialog .profile-main { padding: 11px 12px 9px; }
+    .profile-setup-dialog .steps { margin-bottom: 6px; }
+    .profile-setup-dialog .profile-intro { margin-bottom: 7px; }
+    .profile-setup-dialog .profile-intro h1 { font-size: 1.45rem; }
+    .profile-setup-dialog .profile-intro p { font-size: 11px; line-height: 1.35; }
+    .profile-setup-dialog .profile-form { gap: 6px 8px; }
+    .profile-setup-dialog .photo-row { min-height: 52px; }
+    .profile-setup-dialog .photo-upload { width: 48px; height: 48px; flex-basis: 48px; }
+    .profile-setup-dialog .photo-hint.card { min-height: 42px; padding-left: 9px; }
+    .profile-setup-dialog .photo-hint p { font-size: 10px; line-height: 1.3; }
+    .profile-setup-dialog .field { min-height: 35px; gap: 5px; padding-inline: 7px; font-size: 10px; }
+    .profile-setup-dialog .field .icon { width: 15px; height: 15px; flex-basis: 15px; }
+    .profile-setup-dialog .select-wrap select { padding-inline: 25px; }
+    .profile-setup-dialog .select-wrap .pin { left: 7px; }
+    .profile-setup-dialog .select-wrap .chevron { right: 7px; width: 12px; height: 12px; }
+    .profile-setup-dialog .country-button { gap: 3px; padding-inline: 5px; }
+    .profile-setup-dialog .flag { width: 16px; height: 11px; }
+    .profile-setup-dialog .save-button { min-height: 34px; font-size: 12px; }
+}
+
+@media (max-height: 560px) {
+    .profile-setup-dialog .profile-main { padding-block: 7px; }
+    .profile-setup-dialog .steps { margin-bottom: 4px; }
+    .profile-setup-dialog .profile-intro { margin-bottom: 5px; }
+    .profile-setup-dialog .profile-intro p { display: none; }
+    .profile-setup-dialog .photo-row { min-height: 44px; }
+    .profile-setup-dialog .photo-upload { width: 40px; height: 40px; flex-basis: 40px; }
+    .profile-setup-dialog .photo-hint.card { min-height: 34px; }
+    .profile-setup-dialog .profile-form { gap: 4px 8px; }
+    .profile-setup-dialog .field { min-height: 31px; }
+    .profile-setup-dialog .save-button { min-height: 30px; padding-block: 5px; }
+}

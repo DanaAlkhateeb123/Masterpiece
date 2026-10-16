@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Feedback | Nostalgia Marketplace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="feedback.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+</head>
+<body>
+    <div id="site-header"></div>
+    <main class="feedback-main">
+        <div class="feedback-grid">
+
+            <section class="feedback-intro">
+                <div>
+                    <p class="eyebrow">A note from you</p>
+                    <h1>Help us make<br class="desktop-only"> the experience<br class="desktop-only"> better.</h1>
+                    <p class="feedback-lead">Your perspective helps us shape a more thoughtful, useful place. Share what worked, what felt unclear, or what you would like to see next.</p>
+                </div>
+                <div class="feedback-privacy">
+                    <span></span>
+                    <p>We read every response. Your details stay private.</p>
+                </div>
+            </section>
+
+            <section class="feedback-card" id="feedback-card">
+                <form class="feedback-form" id="feedback-form" action="#" method="POST">
+
+                    <fieldset class="rating-set">
+                        <legend>How satisfied are you with your experience?</legend>
+                        <p class="rating-hint">Choose one response</p>
+                        <div class="rating-grid">
+                        <label class="rating">
+                            <input class="visually-hidden" name="satisfaction" type="radio" value="1">
+                            <span class="rating-circle">1</span>
+                            <span class="rating-label">Not at all</span>
+                        </label>
+                        <label class="rating">
+                            <input class="visually-hidden" name="satisfaction" type="radio" value="2">
+                            <span class="rating-circle">2</span>
+                            <span class="rating-label">A little</span>
+                        </label>
+                        <label class="rating">
+                            <input class="visually-hidden" name="satisfaction" type="radio" value="3">
+                            <span class="rating-circle">3</span>
+                            <span class="rating-label">Neutral</span>
+                        </label>
+                        <label class="rating">
+                            <input class="visually-hidden" name="satisfaction" type="radio" value="4" checked>
+                            <span class="rating-circle">4</span>
+                            <span class="rating-label">Satisfied</span>
+                        </label>
+                        <label class="rating">
+                            <input class="visually-hidden" name="satisfaction" type="radio" value="5">
+                            <span class="rating-circle">5</span>
+                            <span class="rating-label">Very</span>
+                        </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="seller-rating-set">
+                        <legend>How would you rate the seller?</legend>
+                        <p class="rating-hint">Rate the person who helped you with your purchase</p>
+                        <div class="seller-star-rating" id="seller-star-rating" role="radiogroup" aria-label="Seller rating out of five stars">
+                            <label class="seller-star" data-stars="1">
+                                <input class="visually-hidden" name="sellerRating" type="radio" value="1" required>
+                                <span class="star-glyph" aria-hidden="true">★</span><span class="visually-hidden">1 star</span>
+                            </label>
+                            <label class="seller-star" data-stars="2">
+                                <input class="visually-hidden" name="sellerRating" type="radio" value="2">
+                                <span class="star-glyph" aria-hidden="true">★</span><span class="visually-hidden">2 stars</span>
+                            </label>
+                            <label class="seller-star" data-stars="3">
+                                <input class="visually-hidden" name="sellerRating" type="radio" value="3">
+                                <span class="star-glyph" aria-hidden="true">★</span><span class="visually-hidden">3 stars</span>
+                            </label>
+                            <label class="seller-star" data-stars="4">
+                                <input class="visually-hidden" name="sellerRating" type="radio" value="4">
+                                <span class="star-glyph" aria-hidden="true">★</span><span class="visually-hidden">4 stars</span>
+                            </label>
+                            <label class="seller-star" data-stars="5">
+                                <input class="visually-hidden" name="sellerRating" type="radio" value="5">
+                                <span class="star-glyph" aria-hidden="true">★</span><span class="visually-hidden">5 stars</span>
+                            </label>
+                        </div>
+                        <p class="seller-rating-value" id="seller-rating-value" aria-live="polite">Choose a rating from 1 to 5</p>
+                    </fieldset>
+
+                    <div class="fb-field">
+                        <div class="fb-label-row"><label for="feedback">Your feedback</label><span>Required</span></div>
+                        <textarea class="fb-input" id="feedback" name="feedback" rows="5" placeholder="Tell us about your experience, in as much detail as you'd like..." required></textarea>
+                    </div>
+
+                    <div class="fb-field">
+                        <div class="fb-label-row"><label for="email">Email address</label><span>Optional</span></div>
+                        <input class="fb-input" id="email" name="email" type="email" placeholder="you@example.com">
+                    </div>
+
+                    <div class="fb-footer">
+                        <p>Add an email only if you're happy for us to follow up.</p>
+                        <button class="btn-primary btn--xl send-feedback" type="submit">Send feedback <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></button>
+                    </div>
+                </form>
+
+                <div class="feedback-thanks" id="feedback-thanks" hidden>
+                    <span class="status-circle"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#check"/></svg></span>
+                    <h2>Thank you!</h2>
+                    <p>Your feedback has been sent. We read every response.</p>
+                    <a class="btn-secondary btn--xl" href="../home/home.html">Back to home</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    <script src="feedback.js" defer></script>
+    <script src="../navbar/navbar.js"></script>
+    <script src="../shared/motion.js" defer></script>
+</body>
+</html>
+
+

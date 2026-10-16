@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign in or Register | Nostalgia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main class="auth-layout">
+        <section class="auth-hero">
+            <div class="hero-stage" aria-hidden="true">
+            <span class="stage-glow"></span>
+            <svg class="stage-rings" viewBox="0 0 600 600" aria-hidden="true">
+                <circle class="ring ring--dash" cx="300" cy="300" r="214"/>
+                <circle class="ring ring--thin" cx="300" cy="300" r="252"/>
+                <circle class="ring ring--dots" cx="300" cy="300" r="176"/>
+            </svg>
+            <span class="dust" aria-hidden="true"><i style="--x:12%;--y:78%;--s:3px;--d:11s;--l:-1s"></i><i style="--x:24%;--y:52%;--s:2px;--d:14s;--l:-6s"></i><i style="--x:34%;--y:86%;--s:4px;--d:12s;--l:-3s"></i><i style="--x:46%;--y:40%;--s:2px;--d:16s;--l:-9s"></i><i style="--x:58%;--y:82%;--s:3px;--d:13s;--l:-5s"></i><i style="--x:68%;--y:58%;--s:2px;--d:15s;--l:-2s"></i><i style="--x:78%;--y:88%;--s:4px;--d:12s;--l:-8s"></i><i style="--x:88%;--y:46%;--s:3px;--d:14s;--l:-4s"></i><i style="--x:18%;--y:30%;--s:2px;--d:17s;--l:-11s"></i><i style="--x:72%;--y:28%;--s:2px;--d:16s;--l:-7s"></i><i style="--x:52%;--y:92%;--s:3px;--d:13s;--l:-10s"></i><i style="--x:92%;--y:72%;--s:2px;--d:15s;--l:-12s"></i></span>
+            <svg class="hero-clock" viewBox="0 0 400 580" role="img" aria-label="Animated antique wall clock with a swinging pendulum">
+                <defs>
+                    <linearGradient id="clockGold" x1="0" y1="0" x2="1" y2="1">
+                        <stop class="gs gs-1" offset="0"/><stop class="gs gs-2" offset=".5"/><stop class="gs gs-3" offset="1"/>
+                    </linearGradient>
+                    <radialGradient id="clockFace" cx=".5" cy=".4" r=".7">
+                        <stop class="fs fs-1" offset="0"/><stop class="fs fs-2" offset="1"/>
+                    </radialGradient>
+                </defs>
+
+                <!-- case: finial, hood, trunk and base -->
+                <circle class="cl-gold-fill" cx="200" cy="44" r="6"/>
+                <path class="cl-line" d="M200 50v14M182 64h36"/>
+                <path class="cl-case" d="M72 330V190a128 128 0 0 1 256 0v140Z"/>
+                <path class="cl-line cl-line--soft" d="M84 330V190a116 116 0 0 1 232 0v140"/>
+                <path class="cl-case" d="M118 330h164v202H118Z"/>
+                <rect class="cl-glass" x="136" y="348" width="128" height="166" rx="8"/>
+                <path class="cl-glint" d="M142 352h34l-34 74Z"/>
+                <path class="cl-case" d="M98 532h204v24H98ZM84 556h232v14H84Z"/>
+
+                <!-- dial -->
+                <circle class="cl-face" cx="200" cy="190" r="108"/>
+                <circle class="cl-bezel" cx="200" cy="190" r="115"/>
+                <circle class="cl-line" cx="200" cy="190" r="108"/>
+                <circle class="cl-line cl-line--soft" cx="200" cy="190" r="56"/>
+                <path class="cl-tick cl-tick--major" d="M200.0 88.0L200.0 102.0"/><path class="cl-tick" d="M210.7 88.6L209.9 95.5"/><path class="cl-tick" d="M221.2 90.2L219.8 97.1"/><path class="cl-tick" d="M231.5 93.0L229.4 99.6"/><path class="cl-tick" d="M241.5 96.8L238.6 103.2"/><path class="cl-tick cl-tick--major" d="M251.0 101.7L244.0 113.8"/><path class="cl-tick" d="M260.0 107.5L255.8 113.1"/><path class="cl-tick" d="M268.3 114.2L263.6 119.4"/><path class="cl-tick" d="M275.8 121.7L270.6 126.4"/><path class="cl-tick" d="M282.5 130.0L276.9 134.2"/><path class="cl-tick cl-tick--major" d="M288.3 139.0L276.2 146.0"/><path class="cl-tick" d="M293.2 148.5L286.8 151.4"/><path class="cl-tick" d="M297.0 158.5L290.4 160.6"/><path class="cl-tick" d="M299.8 168.8L292.9 170.2"/><path class="cl-tick" d="M301.4 179.3L294.5 180.1"/><path class="cl-tick cl-tick--major" d="M302.0 190.0L288.0 190.0"/><path class="cl-tick" d="M301.4 200.7L294.5 199.9"/><path class="cl-tick" d="M299.8 211.2L292.9 209.8"/><path class="cl-tick" d="M297.0 221.5L290.4 219.4"/><path class="cl-tick" d="M293.2 231.5L286.8 228.6"/><path class="cl-tick cl-tick--major" d="M288.3 241.0L276.2 234.0"/><path class="cl-tick" d="M282.5 250.0L276.9 245.8"/><path class="cl-tick" d="M275.8 258.3L270.6 253.6"/><path class="cl-tick" d="M268.3 265.8L263.6 260.6"/><path class="cl-tick" d="M260.0 272.5L255.8 266.9"/><path class="cl-tick cl-tick--major" d="M251.0 278.3L244.0 266.2"/><path class="cl-tick" d="M241.5 283.2L238.6 276.8"/><path class="cl-tick" d="M231.5 287.0L229.4 280.4"/><path class="cl-tick" d="M221.2 289.8L219.8 282.9"/><path class="cl-tick" d="M210.7 291.4L209.9 284.5"/><path class="cl-tick cl-tick--major" d="M200.0 292.0L200.0 278.0"/><path class="cl-tick" d="M189.3 291.4L190.1 284.5"/><path class="cl-tick" d="M178.8 289.8L180.2 282.9"/><path class="cl-tick" d="M168.5 287.0L170.6 280.4"/><path class="cl-tick" d="M158.5 283.2L161.4 276.8"/><path class="cl-tick cl-tick--major" d="M149.0 278.3L156.0 266.2"/><path class="cl-tick" d="M140.0 272.5L144.2 266.9"/><path class="cl-tick" d="M131.7 265.8L136.4 260.6"/><path class="cl-tick" d="M124.2 258.3L129.4 253.6"/><path class="cl-tick" d="M117.5 250.0L123.1 245.8"/><path class="cl-tick cl-tick--major" d="M111.7 241.0L123.8 234.0"/><path class="cl-tick" d="M106.8 231.5L113.2 228.6"/><path class="cl-tick" d="M103.0 221.5L109.6 219.4"/><path class="cl-tick" d="M100.2 211.2L107.1 209.8"/><path class="cl-tick" d="M98.6 200.7L105.5 199.9"/><path class="cl-tick cl-tick--major" d="M98.0 190.0L112.0 190.0"/><path class="cl-tick" d="M98.6 179.3L105.5 180.1"/><path class="cl-tick" d="M100.2 168.8L107.1 170.2"/><path class="cl-tick" d="M103.0 158.5L109.6 160.6"/><path class="cl-tick" d="M106.8 148.5L113.2 151.4"/><path class="cl-tick cl-tick--major" d="M111.7 139.0L123.8 146.0"/><path class="cl-tick" d="M117.5 130.0L123.1 134.2"/><path class="cl-tick" d="M124.2 121.7L129.4 126.4"/><path class="cl-tick" d="M131.7 114.2L136.4 119.4"/><path class="cl-tick" d="M140.0 107.5L144.2 113.1"/><path class="cl-tick cl-tick--major" d="M149.0 101.7L156.0 113.8"/><path class="cl-tick" d="M158.5 96.8L161.4 103.2"/><path class="cl-tick" d="M168.5 93.0L170.6 99.6"/><path class="cl-tick" d="M178.8 90.2L180.2 97.1"/><path class="cl-tick" d="M189.3 88.6L190.1 95.5"/>
+                <text class="cl-num" x="200.0" y="119.0">XII</text><text class="cl-num" x="236.0" y="128.6">I</text><text class="cl-num" x="262.4" y="155.0">II</text><text class="cl-num" x="272.0" y="191.0">III</text><text class="cl-num" x="262.4" y="227.0">IIII</text><text class="cl-num" x="236.0" y="253.4">V</text><text class="cl-num" x="200.0" y="263.0">VI</text><text class="cl-num" x="164.0" y="253.4">VII</text><text class="cl-num" x="137.6" y="227.0">VIII</text><text class="cl-num" x="128.0" y="191.0">IX</text><text class="cl-num" x="137.6" y="155.0">X</text><text class="cl-num" x="164.0" y="128.6">XI</text>
+                <text class="cl-brand" x="200" y="226">NOSTALGIA</text>
+
+                <!-- hands (animated, synced to your local time by login.js) -->
+                <g class="hand hand-hour"><path d="M200 204l-6-14 6-62 6 62Z"/><circle cx="200" cy="150" r="3.4"/></g>
+                <g class="hand hand-minute"><path d="M200 206l-3.6-16L200 96l3.6 94Z"/></g>
+                <g class="hand hand-second"><path class="cl-sec" d="M200 216V90"/><circle cx="200" cy="214" r="4.5"/></g>
+                <circle class="cl-gold-fill" cx="200" cy="190" r="6.5"/>
+                <circle class="cl-pin" cx="200" cy="190" r="2.4"/>
+
+                <!-- pendulum -->
+                <g class="pendulum">
+                    <path class="cl-rod" d="M200 352V472"/>
+                    <circle class="cl-gold-fill" cx="200" cy="352" r="4"/>
+                    <circle class="cl-bob" cx="200" cy="486" r="19"/>
+                    <circle class="cl-bob-ring" cx="200" cy="486" r="11"/>
+                </g>
+            </svg>
+        </div>
+            <div class="auth-hero-overlay"></div>
+            <div class="auth-hero-content">
+                <h1>Welcome to <span class="auth-hero-logo">Nostalgia</span></h1>
+                <p>Where old stories find new homes...</p>
+                <ul class="auth-features">
+                    <li><span class="auth-feature-icon"><img src="buy-icon.svg" alt=""></span> Buy </li>
+                    <li><span class="auth-feature-icon"><img src="sell-icon.svg" alt=""></span> Sell</li>
+                    <li><span class="auth-feature-icon"><img src="antiques-icon.svg" alt=""></span> Antiques &amp; Auctions</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="auth-panel">
+            <div class="auth-box">
+                <div class="auth-tabs" role="tablist" aria-label="Account access">
+                    <button class="auth-tab is-active" id="tab-login" type="button" role="tab" aria-selected="true" aria-controls="auth-form" data-mode="login">Sign in</button>
+                    <button class="auth-tab" id="tab-register" type="button" role="tab" aria-selected="false" aria-controls="auth-form" data-mode="register">Register</button>
+                </div>
+
+                <h2 class="auth-heading" id="auth-heading">Welcome back</h2>
+                <p class="auth-feedback" id="auth-feedback" role="alert" hidden></p>
+
+                <form class="auth-form" id="auth-form" action="#" method="POST">
+                    <div class="auth-field" id="first-name-field" hidden>
+                        <label for="first-name">First name <span>Required</span></label>
+                        <input class="auth-input" id="first-name" name="firstName" type="text" placeholder="Your first name" autocomplete="given-name" required disabled>
+                    </div>
+                    <div class="auth-field">
+                        <label for="email">Email address <span>Required</span></label>
+                        <input class="auth-input" id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+                    </div>
+                    <div class="auth-field">
+                        <label for="password">Password <span>Required</span></label>
+                        <div class="password-wrap">
+                            <input class="auth-input" id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+                            <button class="password-toggle" id="toggle-password" type="button" aria-label="Show password">
+                                <svg class="icon" aria-hidden="true"><use id="eye-use" href="../assets/icons/icons.svg#eye"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="auth-help" id="forgot-links">
+                        <a class="forgot-link" href="https://www.etsy.com/forgot_password?email=">Forgot your password?</a>
+                    </div>
+                    <button class="btn-primary btn--block auth-submit" id="submit-button" type="submit">Sign in</button>
+                </form>
+
+                <div class="auth-divider"><span>or</span></div>
+                <div class="auth-social">
+                    <button class="social-button" type="button" data-provider="google"><img class="social-icon" src="google-icon.svg" alt=""> Continue with Google</button>
+                    <button class="social-button" type="button" data-provider="facebook"><img class="social-icon" src="facebook-icon.svg" alt=""> Continue with Facebook</button>
+                </div>
+
+                <p class="auth-terms" id="auth-terms">
+                    By clicking Sign in or continuing with Google or Facebook, you agree to Nostalgia's
+                    <a href="https://www.etsy.com/legal/terms-of-use?ref=reg" target="_blank" rel="noopener">Terms of Use</a> and
+                    <a href="https://www.etsy.com/legal/privacy?ref=reg" target="_blank" rel="noopener">Privacy Policy</a>.
+                </p>
+                <p class="auth-contact-note">Nostalgia may contact you; you can change preferences in account settings. We'll never post without your permission.</p>
+            </div>
+        </section>
+    </main>
+    <script src="login.js" defer></script>
+    <script src="../shared/motion.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

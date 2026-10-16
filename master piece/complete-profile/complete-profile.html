@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Complete Profile | Nostalgia Marketplace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="complete-profile.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+</head>
+<body>
+    <div id="site-header"></div>
+    <main class="profile-main">
+        <div class="profile-wrap">
+
+            <nav class="steps" aria-label="Registration progress">
+                <div class="step is-current"><span class="step-number">1</span><span>Complete Profile</span></div>
+                <span class="step-line"></span>
+                <div class="step"><span class="step-number">2</span><span>Start Exploring</span></div>
+            </nav>
+
+            <section class="profile-intro">
+                <h1>Complete your profile</h1>
+                <p>Tell us a little about yourself to get started with Nostalgia.</p>
+            </section>
+
+            <form class="profile-form" id="profile-form" action="#" method="POST">
+
+                <div class="profile-photo">
+                    <label class="form-label">Profile picture (optional)</label>
+                    <div class="photo-row">
+                        <label class="photo-upload" for="photo">
+                            <img class="photo-preview" id="photo-preview" alt="" hidden>
+                            <span class="photo-empty" id="photo-empty">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#camera"/></svg>
+                                <span>Upload photo</span>
+                            </span>
+                            <input class="visually-hidden" id="photo" type="file" accept="image/*">
+                        </label>
+                        <aside class="photo-hint card">
+                            <p>A clear photo helps build trust with other members.</p>
+                        </aside>
+                    </div>
+                </div>
+
+                <div class="two-cols">
+                    <div>
+                        <label class="form-label" for="firstName">First name</label>
+                        <div class="field">
+                            <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#user"/></svg>
+                            <input id="firstName" name="firstName" type="text" placeholder="First name" value="Dana">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="lastName">Last name</label>
+                        <div class="field">
+                            <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#user"/></svg>
+                            <input id="lastName" name="lastName" type="text" placeholder="Last name" value="Alkhateeb">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-email">
+                    <label class="form-label" for="email">Email</label>
+                    <div class="field is-disabled">
+                        <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#mail"/></svg>
+                        <input id="email" name="email" type="email" value="danakhateeb2003@gmail.com" readonly>
+                        <svg class="icon lock" aria-hidden="true"><use href="../assets/icons/icons.svg#lock-solid"/></svg>
+                    </div>
+                </div>
+
+                <div class="profile-phone">
+                    <label class="form-label" for="phone">Phone number</label>
+                    <div class="phone-row">
+                        <button class="field country-button" type="button" aria-label="Select country code">
+                            <svg class="flag" viewBox="0 0 600 300" aria-hidden="true"><use href="../assets/icons/icons.svg#flag-jo"/></svg>
+                            <span>+962</span>
+                            <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#chevron-down"/></svg>
+                        </button>
+                        <div class="field grow">
+                            <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#phone"/></svg>
+                            <input id="phone" name="phone" type="tel" placeholder="Phone number">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-gender">
+                    <label class="form-label" for="gender">Gender <span class="optional-label">Optional</span></label>
+                    <div class="select-wrap">
+                        <select class="field" id="gender" name="gender">
+                            <option value="" selected>Choose</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <svg class="icon chevron" aria-hidden="true"><use href="../assets/icons/icons.svg#chevron-down"/></svg>
+                    </div>
+                </div>
+
+                <div class="profile-location">
+                    <label class="form-label" for="citySelect">Location (in Jordan)</label>
+                    <div class="select-wrap">
+                        <svg class="icon pin" aria-hidden="true"><use href="../assets/icons/icons.svg#map-pin"/></svg>
+                        <select class="field" id="citySelect" name="city">
+                            <option value="" disabled selected>Select your city</option>
+                            <option value="Amman">Amman</option>
+                            <option value="Zarqa">Zarqa</option>
+                            <option value="Irbid">Irbid</option>
+                            <option value="Aqaba">Aqaba</option>
+                            <option value="Salt">Salt</option>
+                            <option value="Madaba">Madaba</option>
+                            <option value="Jerash">Jerash</option>
+                        </select>
+                        <svg class="icon chevron" aria-hidden="true"><use href="../assets/icons/icons.svg#chevron-down"/></svg>
+                    </div>
+                </div>
+
+                <button class="btn-primary btn--xl btn--block save-button" type="submit">Save &amp; Continue</button>
+            </form>
+
+        </div>
+    </main>
+    <script src="complete-profile.js" defer></script>
+    <script src="../navbar/navbar.js"></script>
+    <script src="../shared/motion.js" defer></script>
+</body>
+</html>
+
+

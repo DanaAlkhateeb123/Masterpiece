@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment Details | Nostalgia Marketplace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="../shared/order-confirmation.css">
+    <link rel="stylesheet" href="payment-details.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+</head>
+<body>
+    <div id="site-header"></div>
+    <main class="payment-main">
+        <div class="payment-grid">
+
+            <section class="payment-form-wrap">
+                <div class="payment-title">
+                    <h1>Payment Details</h1>
+                    <p>Your payment is secure and protected.</p>
+                </div>
+
+                <div class="payment-tabs" id="payment-tabs" role="tablist">
+                    <button class="payment-tab is-active" type="button" role="tab" data-method="card">Card Payment</button>
+                    <button class="payment-tab" type="button" role="tab" data-method="apple">Apple Pay</button>
+                </div>
+
+                <form class="payment-form" id="payment-form" action="#" method="POST">
+
+                    <div id="card-fields" class="payment-fields">
+                        <div class="pay-field">
+                            <label for="card-number">Card Number</label>
+                            <div class="card-number-wrap">
+                                <input class="pay-input" id="card-number" name="card-number" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="1234 5678 9012 3456" required>
+                                <span class="card-brands"><i class="brand brand--visa">VISA</i><i class="brand brand--mc">MC</i></span>
+                            </div>
+                        </div>
+
+                        <div class="pay-field">
+                            <label for="cardholder-name">Cardholder Name</label>
+                            <input class="pay-input" id="cardholder-name" name="cardholder-name" type="text" autocomplete="cc-name" placeholder="Full name as printed on card" required>
+                        </div>
+
+                        <div class="pay-two">
+                            <div class="pay-field">
+                                <label for="expiry-date">Expiry Date</label>
+                                <input class="pay-input" id="expiry-date" name="expiry-date" type="text" inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="MM / YY" required>
+                            </div>
+                            <div class="pay-field">
+                                <label for="cvv">CVV</label>
+                                <input class="pay-input" id="cvv" name="cvv" type="password" inputmode="numeric" autocomplete="cc-csc" maxlength="4" placeholder="123" required>
+                            </div>
+                        </div>
+
+                        <div class="save-card">
+                            <input id="save-card" name="save-card" type="checkbox">
+                            <label for="save-card">Save this card for future purchases</label>
+                        </div>
+                    </div>
+
+                    <p class="apple-note" id="apple-note" hidden>Apple Pay will open on your device when you continue.</p>
+
+                    <button class="btn-primary btn--xl btn--block pay-button" type="submit">PAY 100 USD</button>
+
+                    <div class="secure-note">
+                        <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#lock"/></svg>
+                        <p>Your payment is encrypted and held securely by Nostalgia until the item is delivered.</p>
+                    </div>
+                </form>
+            </section>
+
+            <aside class="payment-summary">
+                <div class="summary-card card">
+                    <h3>Order Summary</h3>
+
+                    <div class="summary-item">
+                        <div class="thumb" style="--size: 84px"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=320&amp;q=85" alt="Compact Digital Camera"></div>
+                        <div>
+                            <h4>Compact Digital Camera</h4>
+                            <p>Seller: Zaid Omar</p>
+                            <p class="summary-product-meta">Good condition</p>
+                            <p class="summary-product-meta">Irbid, Jordan</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-rows">
+                        <div><span>Quantity</span><strong>1</strong></div>
+                        <div><span>Item price</span><strong>$95</strong></div>
+                        <div><span>Delivery fee</span><strong>$5</strong></div>
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-total"><span>Total</span><strong>$100</strong></div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+    <dialog class="order-confirmation-dialog" id="order-confirmation-dialog" aria-labelledby="order-confirmation-title">
+        <button class="confirmation-close" id="close-order-confirmation" type="button" aria-label="Close order confirmation">&times;</button>
+        <span class="confirmation-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+        <p class="confirmation-eyebrow">Nostalgia order</p>
+        <h2 id="order-confirmation-title">Order confirmed!</h2>
+        <p class="confirmation-copy" id="order-confirmation-copy">Your payment is confirmed. Zaid Omar has been notified and will prepare your camera for delivery.</p>
+        <div class="confirmation-item">
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=180&amp;q=80" alt="Compact Digital Camera">
+            <div><h3>Compact Digital Camera</h3><p>Seller: Zaid Omar · Order ID: NOST-0012</p><span id="order-confirmation-method">Card payment · $100 paid</span></div>
+        </div>
+        <div class="confirmation-actions">
+            <a class="btn-primary" href="../order-tracking/order-tracking.html">View Order</a>
+            <a class="btn-secondary" href="../home/home.html">Continue Shopping</a>
+        </div>
+    </dialog>
+    <script src="../shared/notifications.js"></script>
+    <script src="payment-details.js" defer></script>
+    <script src="../navbar/navbar.js"></script>
+    <script src="../shared/motion.js" defer></script>
+</body>
+</html>
+
+

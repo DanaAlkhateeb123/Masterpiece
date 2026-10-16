@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Listings | Nostalgia</title>
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+    <link rel="stylesheet" href="../shared/dashboard.css">
+    <link rel="stylesheet" href="user-listings.css">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="gate" id="page-gate" hidden>
+        <div class="gate-card">
+            <div class="gate-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5M12 15v2"/></svg></div>
+            <h1>Sign in to continue</h1>
+            <p>Manage the items you are selling and the auctions you started. Sign in to see them.</p>
+            <a class="d-btn" href="../login/login.html">Sign in</a>
+        </div>
+    </main>
+
+    <main class="dash" id="page-app" hidden>
+        <header class="dash-head">
+            <div>
+                <p class="dash-eyebrow">Account · Listings</p>
+                <h1 class="dash-title">My <em>listings</em></h1>
+                <p class="dash-sub">See how your pieces are performing and keep them looking their best.</p>
+            </div>
+            <div class="dash-actions">
+                <a class="d-btn" href="../selling/selling.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>New listing</a>
+            </div>
+        </header>
+
+        <section class="grid" id="kpi-grid" aria-label="Summary"></section>
+
+        <section class="grid">
+            <article class="panel span-8">
+                <div class="panel-head">
+                    <div><h3>Views on your listings</h3><p>Daily visits to your items, last 30 days</p></div>
+                    <div class="seg" id="metric-seg" role="group" aria-label="Metric">
+                        <button type="button" data-metric="views" aria-pressed="true">Views</button>
+                        <button type="button" data-metric="saves" aria-pressed="false">Saves</button>
+                    </div>
+                </div>
+                <div id="views-chart"></div>
+            </article>
+            <article class="panel panel--dark span-4">
+                <div class="panel-head"><div><h3>AI price insight</h3><p>Suggestions based on similar sold items</p></div><span class="pill pill--gold">AI</span></div>
+                <ul class="insights" id="insights"></ul>
+            </article>
+        </section>
+
+        <section class="panel list-panel">
+            <div class="panel-head">
+                <div><h3>All listings</h3><p id="list-count"></p></div>
+                <div class="toolbar">
+                    <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="l-search" type="search" placeholder="Search listings" aria-label="Search listings"></label>
+                    <select class="select" id="l-sort" aria-label="Sort listings"><option value="recent">Newest first</option><option value="views">Most viewed</option><option value="price">Highest price</option></select>
+                </div>
+            </div>
+            <div class="chips" id="l-chips" role="group" aria-label="Filter listings"></div>
+            <div class="listing-grid" id="l-grid"></div>
+            <p class="empty" id="l-empty" hidden>Nothing here. <a href="../selling/selling.html">List something new</a></p>
+        </section>
+    </main>
+
+    <div class="toast-stack" id="toasts" aria-live="polite"></div>
+    <script src="../shared/auth.js"></script>
+    <script src="../navbar/navbar.js"></script>
+    <script src="../shared/charts.js"></script>
+    <script src="user-listings.js"></script>
+    <script src="../shared/motion.js" defer></script>
+</body>
+</html>

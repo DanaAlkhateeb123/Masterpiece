@@ -1,0 +1,34 @@
+/* My Orders - page styles (shared pieces: shared/dashboard.css) */
+.side-stack { display: grid; gap: 20px; align-content: start; }
+.chips { margin-bottom: 8px; }
+.order-list { display: grid; margin: 12px 0 0; padding: 0; list-style: none; }
+.order { display: grid; gap: 14px; padding: 18px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-card-border) 70%, transparent); animation: dash-rise .6s var(--ease-out) both; animation-delay: var(--d, 0s); }
+.order:last-child { border-bottom: 0; }
+.order-main { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; align-items: center; gap: 16px; }
+.order-img { position: relative; width: 72px; height: 72px; border-radius: 16px; background: var(--ph); overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .05); transition: transform var(--dur-base) var(--ease-out); }
+.order:hover .order-img { transform: scale(1.05) rotate(-2deg); }
+.order-img svg { position: absolute; inset: 22%; width: 56%; height: 56%; fill: none; stroke: rgba(61, 35, 38, .55); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.order-title { margin: 0; font-family: var(--font-heading); font-size: 17px; }
+.order-meta { display: flex; flex-wrap: wrap; gap: 2px 14px; margin-top: 4px; color: var(--color-muted); font-size: 12.5px; }
+.order-price { text-align: right; }
+.order-price strong { display: block; font-family: var(--font-heading); font-size: 20px; font-weight: 500; }
+.order-price .pill { margin-top: 6px; }
+
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding-left: 88px; }
+.step { position: relative; display: grid; gap: 6px; font-size: 11.5px; color: var(--color-muted); }
+.step i { display: block; height: 4px; border-radius: 2px; background: var(--color-tint); overflow: hidden; }
+.step i::after { display: block; height: 100%; border-radius: inherit; background: var(--gradient-gold); transform: scaleX(0); transform-origin: left; content: ""; }
+.step.go.is-done i::after { transform: scaleX(1); transition: transform .8s var(--ease-out) calc(var(--n) * .18s + .3s); }
+.step.go.is-current i::after { transform: scaleX(.5); background: var(--gradient-primary); transition: transform .8s var(--ease-out) calc(var(--n) * .18s + .3s); }
+.step.is-done, .step.is-current { color: var(--color-text); font-weight: 500; }
+.step.is-current span::after { margin-left: 6px; color: var(--color-accent-dark); content: "●"; font-size: 8px; animation: dash-ping 1.6s ease-in-out infinite; display: inline-block; }
+.order-foot { display: flex; flex-wrap: wrap; gap: 8px; padding-left: 88px; }
+@media (max-width: 640px) {
+    .order-main { grid-template-columns: 56px minmax(0, 1fr); } .order-img { width: 56px; height: 56px; } .order-price { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; text-align: left; }
+    .steps, .order-foot { padding-left: 0; }
+}
+.chart-total { display: flex; align-items: baseline; justify-content: space-between; margin: 14px 0 0; padding-top: 14px; border-top: 1px solid var(--color-card-border); color: var(--color-muted); font-size: 13px; }
+.chart-total strong { color: var(--color-text); font-family: var(--font-heading); font-size: 24px; font-weight: 500; }
+.tips { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; font-size: 13px; color: color-mix(in srgb, var(--color-white) 82%, transparent); }
+.tips li { position: relative; padding-left: 22px; }
+.tips li::before { position: absolute; left: 0; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); content: ""; }

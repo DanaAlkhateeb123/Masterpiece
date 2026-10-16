@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sell Your Item | Nostalgia Marketplace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="selling.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+</head>
+<body>
+    <div id="site-header"></div>
+    <main class="sell-main">
+
+        <section class="sell-intro">
+            <div class="sell-kicker"><span class="kicker-line" aria-hidden="true"></span><p>Consignment &amp; Curations</p></div>
+            <h1>Sell Your Item</h1>
+            <p class="sell-sub">Create a listing and give your item a second story.</p>
+        </section>
+
+        <form class="sell-form" id="listing-form" action="#" method="POST">
+            <div class="sell-grid">
+
+                <div class="sell-column">
+                    <div class="sell-column-head">
+                        <h2>Item Details</h2>
+                        <span>* Required fields</span>
+                    </div>
+
+                    <div class="sell-fields">
+                        <div class="sell-field">
+                            <label for="item-title">Title *</label>
+                            <input class="sell-input" id="item-title" name="title" type="text" placeholder="e.g. 1970s Leather Aviator Coat" required>
+                        </div>
+
+                        <div class="sell-two">
+                            <div class="sell-field">
+                                <label for="category">Category *</label>
+                                <div class="select-box">
+                                    <select class="sell-input" id="category" name="category" required>
+                                        <option value="" disabled selected>Choose a category</option>
+                                        <option value="electronics">Electronics</option>
+                                        <option value="clothes">Clothes</option>
+                                        <option value="furniture">Furniture</option>
+                                        <option value="books">Books</option>
+                                        <option value="games">Games</option>
+                                        <option value="antiques">Antiques</option>
+                                        <option value="accessories">Accessories</option>
+                                        <option value="bags">Bags</option>
+                                        <option value="shoes">Shoes</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#chevron-down"/></svg>
+                                </div>
+                            </div>
+                            <div class="sell-field">
+                                <label for="condition">Condition *</label>
+                                <div class="select-box">
+                                    <select class="sell-input" id="condition" name="condition" required>
+                                        <option value="" disabled selected>Choose condition</option>
+                                        <option value="excellent">Excellent</option>
+                                        <option value="very-good">Very Good</option>
+                                        <option value="good">Good</option>
+                                        <option value="fair">Fair</option>
+                                        <option value="poor">Poor</option>
+                                    </select>
+                                    <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#chevron-down"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sell-field">
+                            <label>Listing Type</label>
+                            <div class="type-pills" id="type-pills">
+                                <button class="type-pill is-active" type="button">Fixed Price (Direct Buy)</button>
+                                <button class="type-pill" type="button">Auction / Offer</button>
+                            </div>
+                        </div>
+
+                        <div class="sell-two">
+                            <div class="sell-field">
+                                <label for="price">Price (USD)</label>
+                                <div class="input-prefix">
+                                    <span>$</span>
+                                    <input class="sell-input" id="price" name="price" type="number" placeholder="0.00" value="45">
+                                </div>
+                            </div>
+                            <div class="sell-field">
+                                <label for="material">Material / Composition</label>
+                                <input class="sell-input" id="material" name="material" type="text" placeholder="e.g. Cotton, leather, wood" required>
+                            </div>
+                        </div>
+
+                        <div class="curator-note">
+                            <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#info"/></svg>
+                            <div>
+                                <p class="note-title">Note :</p>
+                                <p class="note-text">Providing details sell 40% faster on Nostalgia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sell-column">
+                    <div class="sell-column-head">
+                        <h2>Photos</h2>
+                        <span>Max 10 files (20MB)</span>
+                    </div>
+
+                    <div class="sell-fields">
+                        <label class="upload-box" for="photo-upload">
+                            <span class="upload-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#camera"/></svg></span>
+                            <span class="upload-title">Add Photos</span>
+                            <span class="upload-text">Upload up to 10 images • High quality photos attract more collectors</span>
+                            <span class="upload-hint" id="upload-hint">Click to browse or drag &amp; drop</span>
+                            <span class="upload-previews" id="upload-previews" aria-live="polite"></span>
+                            <input class="visually-hidden" id="photo-upload" type="file" accept="image/*" multiple>
+                        </label>
+
+                        <div class="sell-field">
+                            <div class="label-row">
+                                <label for="item-description">Description &amp; Story</label>
+                                <span>Include flaws, era, or origin</span>
+                            </div>
+                            <textarea class="sell-input" id="item-description" rows="4" placeholder="Detail the fit, historical era, brand history, or any nostalgic memories associated with this piece..."></textarea>
+                        </div>
+
+                        <div class="sell-field">
+                            <label for="location">Item Location</label>
+                            <div class="input-icon">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#map-pin"/></svg>
+                                <input class="sell-input" id="location" name="location" type="text" placeholder="Start typing a city or area in Jordan" list="jordan-locations" autocomplete="address-level2" required>
+                                <datalist id="jordan-locations">
+                                    <option value="Amman, Jordan"><option value="Irbid, Jordan"><option value="Zarqa, Jordan">
+                                    <option value="Aqaba, Jordan"><option value="Salt, Jordan"><option value="Madaba, Jordan">
+                                    <option value="Jerash, Jordan"><option value="Ajloun, Jordan"><option value="Mafraq, Jordan">
+                                    <option value="Karak, Jordan"><option value="Tafilah, Jordan"><option value="Ma'an, Jordan">
+                                    <option value="Russeifa, Zarqa, Jordan"><option value="Sweileh, Amman, Jordan"><option value="Jabal Amman, Amman, Jordan">
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sell-actions">
+                        <button class="btn-secondary btn--pill preview-button" id="preview-button" type="button">Preview</button>
+                        <button class="btn-primary btn--pill publish-button" type="submit">Publish Listing <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </main>
+    <dialog class="listing-preview" id="listing-preview" aria-labelledby="preview-title">
+        <div class="preview-head"><div><p class="sell-kicker"><span class="kicker-line" aria-hidden="true"></span><span class="preview-eyebrow">Review your listing</span></p><h2 id="preview-title">Preview</h2></div><button class="preview-close" type="button" aria-label="Close preview">&times;</button></div>
+        <div class="preview-content">
+            <div class="preview-photo" id="preview-photo"><span>No photo selected</span></div>
+            <div class="preview-details"><h3 id="preview-item-title"></h3><p class="preview-price" id="preview-price"></p><dl id="preview-facts"></dl><p class="preview-description" id="preview-description"></p></div>
+        </div>
+        <p class="preview-location" id="preview-location"></p>
+        <div class="preview-actions"><button class="btn-secondary btn--pill preview-back" type="button">Back to edit</button><button class="btn-primary btn--pill" id="preview-publish" type="button">Publish listing</button></div>
+    </dialog>
+    <script src="selling.js" defer></script>
+    <script src="../navbar/navbar.js"></script>
+    <script src="../shared/motion.js" defer></script>
+</body>
+</html>
+
+

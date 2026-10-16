@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Messages | Nostalgia Marketplace</title>
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ 
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="messages.css">
+</head>
+<body class="messages-page">
+    <main class="msg-page">
+ 
+<section class="shell" aria-label="Messages">
+ 
+            <div class="shell-head shell-head--left">
+                <div class="inbox-heading"><a class="inbox-home" href="../index.html" aria-label="Back to Nostalgia">&#8592;</a><h1>Messages</h1></div>
+                <span>3 conversations</span>
+            </div>
+ 
+            <aside class="sidebar" aria-label="Conversations">
+                <div class="search-box">
+                    <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#search"/></svg>
+                    <input id="conv-search" type="search" placeholder="Search conversations" aria-label="Search conversations">
+                </div>
+ 
+                <ul class="conv-list" id="conv-list">
+                    <li>
+                        <button class="conv is-active" type="button" data-id="zaid" data-name="Zaid Omar" data-avatar="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=120&amp;q=80" data-member-since="March 14, 2022" data-response-time="Within a few hours" data-location="Irbid, Jordan" data-seller-rating="5" data-item="Compact Digital Camera" data-item-image="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=240&amp;q=80" data-price="$95" data-meta="" data-last="The camera is listed as Good. I can confirm the model and accessories for you." data-time="Now">
+                            <span class="conv-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=120&amp;q=80" alt="Zaid Omar"></span>
+                            <span class="conv-body">
+                                <span class="conv-top"><strong>Zaid Omar</strong><time>Now</time></span>
+                                <span class="conv-item">Compact Digital Camera</span>
+                                <span class="conv-last"><span>The camera is listed as Good. I can confirm the model and accessories for you.</span></span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="conv" type="button" data-id="omar" data-name="Omar Khalil" data-avatar="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=120&amp;q=80" data-member-since="June 8, 2023" data-response-time="Usually within an hour" data-location="Amman, Jordan" data-seller-rating="4" data-item="Vintage Leather Satchel" data-item-image="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&amp;fit=crop&amp;w=240&amp;q=80" data-price="JD 78" data-meta="Very good · Genuine leather" data-last="It is in very good condition and ready for its next owner." data-time="12:20">
+                            <span class="conv-avatar"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=120&amp;q=80" alt="Omar Khalil"></span>
+                            <span class="conv-body">
+                                <span class="conv-top"><strong>Omar Khalil</strong><time>12:20</time></span>
+                                <span class="conv-item">Vintage Leather Satchel</span>
+                                <span class="conv-last"><span>It is in very good condition and ready for its next owner.</span><span class="unread">2</span></span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="conv" type="button" data-id="nour" data-name="Nour Haddad" data-avatar="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=120&amp;q=80" data-member-since="September 22, 2021" data-response-time="Within a few hours" data-location="Amman, Jordan" data-seller-rating="5" data-item="Copper-framed mirror" data-item-image="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&amp;fit=crop&amp;w=240&amp;q=80" data-price="JD 60" data-meta="" data-last="Yes, pickup from Jabal Amman is available." data-time="Yesterday">
+                            <span class="conv-avatar"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=120&amp;q=80" alt="Nour Haddad"></span>
+                            <span class="conv-body">
+                                <span class="conv-top"><strong>Nour Haddad</strong><time>Yesterday</time></span>
+                                <span class="conv-item">Copper-framed mirror</span>
+                                <span class="conv-last"><span>Yes, pickup from Jabal Amman is available.</span><span class="unread">1</span></span>
+                            </span>
+                        </button>
+                    </li>
+                </ul><p class="search-empty" id="search-empty" hidden>No conversations found.<br>Try a different name or item.</p>
+ 
+                <p class="sidebar-foot"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#message-circle"/></svg> Every beautiful story starts with a conversation</p>
+            </aside>
+ 
+            <div class="chat">
+                <div class="chat-heading"><button class="back-to-inbox" id="back-to-inbox" type="button" aria-label="Back to conversations">&#8592;</button>
+
+                <button class="chat-seller" id="seller-profile-trigger" type="button" aria-haspopup="dialog" aria-controls="seller-profile"><span class="conv-avatar"><img id="chat-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=120&amp;q=80" alt="Zaid Omar"></span><span class="chat-identity"><strong id="chat-name">Zaid Omar</strong><small>View seller profile <span aria-hidden="true">&#8599;</span></small></span></button><span class="chat-label">ABOUT YOUR FIND</span></div>
+ 
+                <div class="item-bar">
+                    <img class="item-bar-thumb" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=240&amp;q=80" alt="Compact Digital Camera">
+                    <div class="item-bar-info">
+                        <h3 id="item-title">Compact Digital Camera</h3>
+                        <p class="item-bar-line"><strong id="item-price">$95</strong></p>
+                        <a class="btn-secondary btn--item item-view-button" href="../item-details/item-details.html">View Item</a>
+                    </div>
+                    <div class="item-bar-actions">
+                        <div class="purchase-action">
+                            <p class="item-bar-hint">Prefer not to message the seller? Order directly !</p>
+                            <a class="btn-primary btn--item" href="../checkout-order-summary/checkout-order-summary.html">Purchase Now</a>
+                        </div>
+                    </div>
+                </div>
+ 
+                <div class="thread" id="thread" role="log" aria-label="Conversation messages" aria-live="polite">
+                    <div class="thread-note">
+                        <p>Conversation started</p>
+                        <p>This conversation started with an inquiry about <span>Compact Digital Camera</span></p>
+                    </div>
+ 
+                    <div class="msg msg--sent"><div class="bubble">Hi Zaid, I’m interested in the Compact Digital Camera. Is it still available?</div><span class="msg-time">12:32 PM <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#check-check"/></svg></span></div>
+                    <div class="msg msg--received"><div class="bubble">Hi Sarah, yes. It is listed for $95 with a Good condition rating.</div><span class="msg-time">12:34 PM</span></div>
+                    <div class="msg msg--sent"><div class="bubble">Thanks! Could you confirm the camera’s brand, model, and which accessories are included?</div><span class="msg-time">12:35 PM <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#check-check"/></svg></span></div>
+                    <div class="msg msg--received"><div class="bubble">Those details aren’t included in the listing. I can check the model and accessories for you.</div><span class="msg-time">12:36 PM</span></div>
+                </div>
+ 
+                <form class="composer" id="composer" action="#">
+                    <div class="quick-replies">
+                        <button type="button">Is the price negotiable?</button>
+                        <button type="button">Thank you</button>
+                    </div>
+                    <div class="composer-box">
+                        <input id="composer-input" type="text" placeholder="Write your message here..." aria-label="Write your message" autocomplete="off">
+                        <button class="send" type="submit" aria-label="Send"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                    </div>
+                    <p class="composer-note">To protect your purchases, keep payment and conversation inside Nostalgia.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <dialog class="seller-dialog" id="seller-profile" aria-labelledby="seller-profile-name">
+        <button class="seller-dialog-close" id="seller-dialog-close" type="button" aria-label="Close seller profile">&times;</button>
+        <div class="seller-profile-heading">
+            <img id="seller-profile-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=240&amp;q=80" alt="Zaid Omar">
+            <div><h2 id="seller-profile-name">Zaid Omar</h2><p class="verified-label"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.7 12.2 3l2.6-.1.8 2.5 2 1.7-.8 2.5.8 2.5-2 1.7-.8 2.5-2.6-.1L10 17.5l-2.2-1.3-2.6.1-.8-2.5-2-1.7.8-2.5-.8-2.5 2-1.7.8-2.5 2.6.1L10 1.7Z"/><path d="m6.7 9.8 2.1 2.1 4.6-4.6"/></svg>Verified seller</p></div>
+        </div>
+        <div class="seller-profile-rating"><span id="seller-profile-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><strong id="seller-profile-rating">5/5</strong><small>Seller rating</small></div>
+        <dl class="seller-profile-facts">
+            <div><dt>Member since</dt><dd id="seller-member-since">March 14, 2022</dd></div>
+            <div><dt>Average response time</dt><dd id="seller-response-time">Within a few hours</dd></div>
+            <div><dt>Location</dt><dd id="seller-location">Irbid, Jordan</dd></div>
+        </dl>
+    </dialog>
+    <script src="messages.js" defer></script>
+    <script src="../shared/motion.js" defer></script>
+</body>
+</html>
+ 

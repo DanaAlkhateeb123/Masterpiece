@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Order Summary | Nostalgia Marketplace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="../shared/order-confirmation.css">
+    <link rel="stylesheet" href="checkout-order-summary.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+    <div id="site-header"></div>
+    <main class="checkout-main container">
+        <div class="checkout-grid">
+
+            <section class="checkout-steps">
+                <div class="checkout-block">
+                    <div class="checkout-block-head">
+                        <h4>Delivery Address</h4>
+                        <button class="link-button address-edit-button" id="edit-address" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5 5 5M4 20l4.2-.8L19 8.4a2.1 2.1 0 0 0-3-3L5.2 16.2 4 20Z"/></svg><span>Edit address</span></button>
+                    </div>
+                    <div class="address-box card">
+                        <p class="address-name" id="saved-name">Dana Alkhateeb</p>
+                        <p class="address-city" id="saved-address">Amman, Jordan</p>
+                        <p class="address-extra" id="saved-contact"></p>
+                        <p class="address-pin" id="saved-pin" hidden></p>
+                    </div>
+                </div>
+
+                <div class="checkout-block">
+                    <h4>Payment Method</h4>
+                    <div class="pay-options">
+                        <label class="pay-option">
+                            <input class="visually-hidden" type="radio" name="payment_method" value="card" checked>
+                            <span class="pay-radio"></span>
+                            <span class="pay-name">Credit / Debit Card</span>
+                            <svg class="icon pay-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M2.5 9.5h19M6.5 15h4"/></svg>
+                        </label>
+                        <label class="pay-option">
+                            <input class="visually-hidden" type="radio" name="payment_method" value="apple_pay">
+                            <span class="pay-radio"></span>
+                            <span class="pay-name">Apple Pay</span>
+                            <svg class="icon pay-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M9 6.5h6M10 18h4"/></svg>
+                        </label>
+                        <label class="pay-option">
+                            <input class="visually-hidden" type="radio" name="payment_method" value="cod">
+                            <span class="pay-radio"></span>
+                            <span class="pay-name">Cash Payment (upon delivery)</span>
+                            <svg class="icon pay-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 9h.01M18 15h.01"/></svg>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="checkout-summary">
+                <div class="summary-card card">
+                    <h3>Order Summary</h3>
+
+                    <div class="summary-item">
+                        <div class="thumb" style="--size: 84px"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=320&amp;q=85" alt="Compact Digital Camera"></div>
+                        <div>
+                            <h4>Compact Digital Camera</h4>
+                            <p>Seller: Zaid Omar</p>
+                            <p class="summary-product-meta">Good condition</p>
+                            <p class="summary-product-meta">Irbid, Jordan</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-rows">
+                        <div><span>Quantity</span><strong>1</strong></div>
+                        <div><span>Item price</span><strong>$95</strong></div>
+                        <div><span>Delivery fee</span><strong>$5</strong></div>
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-total"><span>Total</span><strong>$100</strong></div>
+
+                    <button class="btn-primary btn--xl btn--block btn--upper proceed-button" id="checkout-continue" type="button">Proceed to Payment</button>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+    <dialog class="address-dialog" id="address-dialog" aria-labelledby="address-dialog-title">
+        <form id="address-form" class="address-editor" novalidate>
+            <div class="address-dialog-head">
+                <div><p class="address-eyebrow">Delivery details</p><h2 id="address-dialog-title">Edit your address</h2></div>
+                <button class="address-close" id="close-address" type="button" aria-label="Close address editor">&times;</button>
+            </div>
+            <div class="address-editor-grid">
+                <label>Full name<input id="recipient-name" name="recipient" type="text" value="Dana Alkhateeb" autocomplete="name" required></label>
+                <label>Phone number<input id="recipient-phone" name="phone" type="tel" placeholder="e.g. 07X XXX XXXX" autocomplete="tel" required></label>
+                <label>Governorate<select id="recipient-governorate" name="governorate" required>
+                    <option value="Amman" selected>Amman</option><option value="Irbid">Irbid</option><option value="Zarqa">Zarqa</option><option value="Aqaba">Aqaba</option><option value="Balqa">Balqa</option><option value="Madaba">Madaba</option><option value="Jerash">Jerash</option><option value="Ajloun">Ajloun</option><option value="Mafraq">Mafraq</option><option value="Karak">Karak</option><option value="Tafilah">Tafilah</option><option value="Ma'an">Ma'an</option>
+                </select></label>
+                <label>City / area<input id="recipient-city" name="city" type="text" value="Amman" placeholder="City or neighborhood" required></label>
+                <label>Street<input id="recipient-street" name="street" type="text" placeholder="Street name" required></label>
+                <label>Building number<input id="recipient-building" name="building" type="text" placeholder="Building or house number" required></label>
+                <label class="address-optional">Apartment / floor <span>Optional</span><input id="recipient-unit" name="unit" type="text" placeholder="Apartment, floor, or unit"></label>
+                <label class="address-optional">Delivery instructions <span>Optional</span><input id="recipient-notes" name="notes" type="text" placeholder="Landmark, gate code, or other notes"></label>
+            </div>
+            <div class="map-heading"><div><h3>Pin your delivery location</h3><p>Click the map to place the marker as close as possible to your address.</p></div><button class="map-current-location" id="use-current-location" type="button">Use my location</button></div>
+            <div id="delivery-map" aria-label="Map to select delivery location"></div>
+            <p class="map-selection" id="map-selection">No exact map point selected yet.</p>
+            <input id="delivery-latitude" name="latitude" type="hidden">
+            <input id="delivery-longitude" name="longitude" type="hidden">
+            <p class="address-error" id="address-error" role="alert" hidden>Please fill in the required address fields.</p>
+            <div class="address-dialog-actions"><button class="btn-secondary btn--pill" id="cancel-address" type="button">Cancel</button><button class="btn-primary btn--pill" type="submit">Save address</button></div>
+        </form>
+    </dialog>
+    <dialog class="cash-confirm-dialog" id="cash-confirm-dialog" aria-labelledby="cash-confirm-title">
+        <button class="cash-confirm-close" id="cash-confirm-close" type="button" aria-label="Close confirmation">&times;</button>
+        <div class="cash-confirm-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v10m0 4v.1M4.9 19h14.2a1.5 1.5 0 0 0 1.3-2.2L13.3 4.5a1.5 1.5 0 0 0-2.6 0L3.6 16.8A1.5 1.5 0 0 0 4.9 19Z"/></svg></div>
+        <h2 id="cash-confirm-title">Confirm cash order?</h2>
+        <p>You’re placing an order for the <strong>Compact Digital Camera</strong> from <strong>Zaid Omar</strong>. Pay <strong>$100</strong> when it’s delivered.</p>
+        <div class="cash-confirm-actions"><button class="btn-secondary btn--pill" id="cancel-cash-order" type="button">Cancel</button><button class="btn-primary btn--pill" id="confirm-cash-order" type="button">Confirm order</button></div>
+    </dialog>
+    <dialog class="order-confirmation-dialog" id="order-confirmation-dialog" aria-labelledby="order-confirmation-title">
+        <button class="confirmation-close" id="close-order-confirmation" type="button" aria-label="Close order confirmation">&times;</button>
+        <span class="confirmation-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+        <p class="confirmation-eyebrow">Nostalgia order</p>
+        <h2 id="order-confirmation-title">Order confirmed!</h2>
+        <p class="confirmation-copy">Your order is confirmed. Pay $100 in cash when the camera is delivered.</p>
+        <div class="confirmation-item">
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&amp;fit=crop&amp;w=180&amp;q=80" alt="Compact Digital Camera">
+            <div><h3>Compact Digital Camera</h3><p>Seller: Zaid Omar · Order ID: NOST-0012</p><span>Cash on delivery · $100</span></div>
+        </div>
+        <div class="confirmation-actions">
+            <a class="btn-primary" href="../order-tracking/order-tracking.html?method=cod">View Order</a>
+            <a class="btn-secondary" href="../home/home.html">Continue Shopping</a>
+        </div>
+    </dialog>
+    <script src="../navbar/navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../shared/notifications.js"></script>
+    <script src="checkout-order-summary.js" defer></script>
+    <script src="../shared/motion.js" defer></script>
+</body>
+</html>
+
+

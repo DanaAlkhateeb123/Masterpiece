@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Nostalgia</title>
+    <link rel="stylesheet" href="../shared/global.css">
+    <link rel="stylesheet" href="../shared/components.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="profile-page">
+        <div class="profile-dashboard">
+            <div class="profile-main-content">
+                <section class="profile-banner" aria-label="Profile summary">
+                    <div class="profile-banner-avatar" id="profile-avatar-wrap">
+                        <img id="profile-avatar" alt="Profile photo" hidden >
+                        <span id="profile-initials">D</span>
+                        <button class="camera-edit" id="banner-photo-edit" type="button" aria-label="Change profile photo"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="3"/></svg></button>
+                    </div>
+                    <div class="profile-banner-copy">
+                        <span class="profile-kicker">YOUR NOSTALGIA SPACE</span>
+                        <h1 id="profile-name">Dana Alkhateeb</h1>
+                        <p id="profile-member-since">Member since October 2026</p>
+                        <span class="profile-verified"><span aria-hidden="true">&#10003;</span> Verified account</span>
+
+                    </div>
+                    <button class="profile-edit-button btn-primary" id="edit-profile" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5 4 4"/><path d="M4 20l4.5-1 10.7-10.7a2.1 2.1 0 0 0-3-3L5.5 16 4 20Z"/></svg><span>Edit Profile</span></button>
+                </section>
+
+                <section class="profile-lower-grid">
+                    <article class="dashboard-panel personal-panel" id="personal-information">
+                        <header class="panel-heading"><div><h2><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>Personal Information</h2><p>Manage your personal details and contact information.</p></div></header>
+                        <div class="personal-content"><div class="personal-rows">
+                            <div><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg><span>Full Name</span><strong id="detail-name">Dana Alkhateeb</strong></div>
+                            <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg><span>Email Address</span><strong id="detail-email">dana.k@example.com</strong></div>
+                            <div><svg viewBox="0 0 24 24"><path d="M7 3h3l1.5 4-2 1.5a15 15 0 0 0 6 6l1.5-2 4 1.5v3A2 2 0 0 1 19 19C11 19 5 13 5 5a2 2 0 0 1 2-2Z"/></svg><span>Phone Number</span><strong id="detail-phone">+962 79 123 4567</strong></div>
+                            <div><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg><span>Gender</span><strong id="detail-gender">Female</strong></div>
+                            <div><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Location</span><strong id="detail-city">Amman, Jordan</strong></div>
+                        </div></div>
+                    </article>
+
+                    <aside class="quick-actions"><h2>Quick Actions</h2>
+                        <a href="../selling/selling.html"><span class="quick-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span><span>Add New Listing</span><b aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></b></a>
+                        <a href="../antiqes/antiqes.html"><span class="quick-icon"><svg viewBox="0 0 24 24"><path d="m14 5 5 5M4 20l4.2-.9L19 8.3a2.1 2.1 0 0 0-3-3L5.2 16.1 4 20ZM3 21h7"/></svg></span><span>Browse Antiques</span><b aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></b></a>
+                        <a href="../categories/categories.html"><span class="quick-icon"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></span><span>Explore Categories</span><b aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></b></a>
+                        <a href="../messeges/messages.html"><span class="quick-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span>Contact Support</span><b aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></b></a>
+                    </aside>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <dialog class="profile-edit-dialog" id="profile-edit-dialog" aria-labelledby="edit-title">
+        <form class="edit-form" id="edit-profile-form">
+            <header class="edit-heading"><div><span class="eyebrow">YOUR ACCOUNT</span><h2 id="edit-title">Edit profile</h2></div></header>
+            <label class="edit-photo" for="edit-photo"><span class="edit-avatar"><img id="edit-avatar" alt="" hidden><span id="edit-initials">D</span></span><span><strong>Change profile photo</strong><small>Choose a clear photo of yourself</small></span><input id="edit-photo" type="file" accept="image/*" hidden></label>
+            <div class="edit-fields">
+                <label class="edit-field"><span>First name</span><input id="edit-first-name" name="firstName" type="text" autocomplete="given-name" required></label>
+                <label class="edit-field"><span>Last name</span><input id="edit-last-name" name="lastName" type="text" autocomplete="family-name" required></label>
+                <label class="edit-field"><span>Email address</span><input id="edit-email" name="email" type="email" autocomplete="email" required></label>
+                <label class="edit-field"><span>Phone number</span><input id="edit-phone" name="phone" type="tel" autocomplete="tel" placeholder="+962 7X XXX XXXX"></label>
+                <label class="edit-field"><span>Gender</span><select id="edit-gender" name="gender"><option value="">Choose</option><option value="Male">Male</option><option value="Female">Female</option></select></label>
+                <label class="edit-field"><span>Location</span><select id="edit-city" name="city"><option value="">Choose your city</option><option>Amman</option><option>Irbid</option><option>Zarqa</option><option>Aqaba</option><option>Salt</option><option>Madaba</option><option>Jerash</option></select></label>
+            </div>
+            <footer class="edit-actions"><button class="cancel-edit" id="cancel-edit" type="button">Cancel</button><button class="save-edit" type="submit">Save changes</button></footer>
+        </form>
+    </dialog>
+
+    <script src="../navbar/navbar.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>
+
