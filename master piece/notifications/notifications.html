@@ -1,22 +1,36 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Notifications | Nostalgia</title><link rel="stylesheet" href="../shared/global.css"><link rel="stylesheet" href="../shared/components.css"><link rel="stylesheet" href="../navbar/navbar.css"><link rel="stylesheet" href="../shared/account-pages.css"><link rel="stylesheet" href="notifications.css"></head>
-<body><div id="site-header"></div><main class="account-page">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Notifications | Nostalgia</title><link rel="stylesheet" href="../shared/global.css"><link rel="stylesheet" href="../shared/components.css"><link rel="stylesheet" href="../navbar/navbar.css"><link rel="stylesheet" href="../shared/account-pages.css"><link rel="stylesheet" href="../shared/address-editor.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="notifications.css">    <link rel="stylesheet" href="../shared/headings.css">
+</head>
+<body class="notifications-page"><div id="site-header"></div><main class="account-page">
 <header class="page-heading"><div><span class="page-eyebrow">Notifications</span><h1>Notifications</h1><p>Stay updated with your orders, sales, and latest activity.</p></div><div class="heading-actions"><button class="soft-button" id="mark-all" type="button"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Mark all as read</button></div></header>
-<section aria-label="Notifications"><div class="feed-toolbar"><nav class="filters" aria-label="Filter notifications"><button class="filter active" data-filter="all" aria-pressed="true" type="button">All <b>0</b></button><button class="filter" data-filter="orders" aria-pressed="false" type="button">Orders <b>0</b></button><button class="filter" data-filter="selling" aria-pressed="false" type="button">My sales <b>0</b></button><button class="filter" data-filter="auctions" aria-pressed="false" type="button">Auctions <b>0</b></button><button class="filter" data-filter="messages" aria-pressed="false" type="button">Messages <b>0</b></button><button class="filter" data-filter="listings" aria-pressed="false" type="button">Listings <b>0</b></button><button class="filter" data-filter="payments" aria-pressed="false" type="button">Payments <b>0</b></button><button class="filter" data-filter="unread" aria-pressed="false" type="button">Unread <b>0</b></button></nav><select class="sort-control" id="notification-sort" aria-label="Sort notifications"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></div><div class="notification-list" id="notification-list"></div><div class="empty-state" id="empty-state" hidden><h2>You are all caught up.</h2><p>New activity will appear here.</p></div><p class="page-status" id="notification-status" role="status"></p></section>
-</main><dialog class="pickup-dialog" id="pickup-dialog" aria-labelledby="pickup-title">
-<form id="pickup-form">
-<header class="pickup-heading"><div><span class="page-eyebrow">Seller collection</span><h2 id="pickup-title">Arrange Pickup</h2><p id="pickup-item"></p></div><button class="pickup-close" id="pickup-close" type="button" aria-label="Close pickup details">&times;</button></header>
-<p class="pickup-intro">Prepare your item and tell us where it can be collected for delivery to the buyer.</p>
-<label class="pickup-saved" id="pickup-saved-wrap" hidden><input type="checkbox" id="pickup-use-saved">Use my saved pickup address</label>
-<div class="pickup-fields">
-<label>City<input id="pickup-city" name="city" autocomplete="address-level2" maxlength="100" required></label>
-<label>Contact number<input id="pickup-phone" name="phone" type="tel" autocomplete="tel" maxlength="30" required></label>
-<label class="pickup-wide">Street address<input id="pickup-address" name="address" autocomplete="street-address" maxlength="240" required></label>
-<label class="pickup-wide">Building &amp; apartment details<input id="pickup-building" name="building" placeholder="Building name or number, floor, apartment" maxlength="180" required></label>
-<label class="pickup-wide">Preferred pickup time <span class="optional">(optional)</span><input id="pickup-time" name="time" type="datetime-local"><small>Local time in Jordan. Your preferred collection time.</small></label>
-<label class="pickup-wide">Collection notes <span class="optional">(optional)</span><textarea id="pickup-notes" name="notes" rows="2" maxlength="500" placeholder="Landmark, access instructions, or special care for an antique"></textarea></label>
-</div>
-<label class="pickup-saved"><input type="checkbox" id="pickup-save-address" checked>Save this address for future pickups</label>
-<p class="pickup-error" id="pickup-error" role="alert" hidden></p>
-<footer class="pickup-footer"><button class="soft-button" id="pickup-cancel" type="button">Cancel</button><button class="btn-primary" type="submit">Save Pickup Details</button></footer>
-</form></dialog><script src="pickup.js"></script><script src="../shared/notifications.js"></script><script src="notifications.js"></script><script src="../navbar/navbar.js"></script></body></html>
+<section aria-label="Notifications"><div class="feed-toolbar"><nav class="filters" aria-label="Filter notifications"><button class="filter active" data-filter="all" aria-pressed="true" type="button">All <b>0</b></button><button class="filter" data-filter="orders" aria-pressed="false" type="button">Orders <b>0</b></button><button class="filter" data-filter="selling" aria-pressed="false" type="button">My sales <b>0</b></button><button class="filter" data-filter="auctions" aria-pressed="false" type="button">Auctions <b>0</b></button><button class="filter" data-filter="messages" aria-pressed="false" type="button">Messages <b>0</b></button><button class="filter" data-filter="listings" aria-pressed="false" type="button">Listings <b>0</b></button><button class="filter" data-filter="payments" aria-pressed="false" type="button">Payments <b>0</b></button><button class="filter" data-filter="unread" aria-pressed="false" type="button">Unread <b>0</b></button></nav><select class="sort-control" id="notification-sort" aria-label="Sort notifications"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></div><div class="notification-list" id="notification-list"></div><div class="empty-state" id="empty-state" hidden><h2>You are all caught <span class="heading-accent">up.</span></h2><p>New activity will appear here.</p></div><p class="page-status" id="notification-status" role="status"></p></section>
+</main><dialog class="address-dialog" id="pickup-dialog" aria-labelledby="pickup-title">
+        <form id="pickup-form" class="address-editor" novalidate>
+            <div class="address-dialog-head">
+                <div><p class="address-eyebrow">Pickup details</p><h2 id="pickup-title">Edit your pickup address</h2></div>
+                <button class="address-close" id="pickup-close" type="button" aria-label="Close address editor">&times;</button>
+            </div>
+            <label class="pickup-saved" id="pickup-saved-wrap" hidden><input type="checkbox" id="pickup-use-saved">Use my saved pickup address</label>
+            <div class="address-editor-grid">
+                <label>Full name<input id="pickup-name" name="recipient" type="text"  autocomplete="name" required></label>
+                <label>Phone number<input id="pickup-phone" name="phone" type="tel" placeholder="e.g. 07X XXX XXXX" autocomplete="tel" required></label>
+                <label>Governorate<select id="pickup-governorate" name="governorate" required>
+                    <option value="Amman" selected>Amman</option><option value="Irbid">Irbid</option><option value="Zarqa">Zarqa</option><option value="Aqaba">Aqaba</option><option value="Balqa">Balqa</option><option value="Madaba">Madaba</option><option value="Jerash">Jerash</option><option value="Ajloun">Ajloun</option><option value="Mafraq">Mafraq</option><option value="Karak">Karak</option><option value="Tafilah">Tafilah</option><option value="Ma'an">Ma'an</option>
+                </select></label>
+                <label>City / area<input id="pickup-city" name="city" type="text" placeholder="City or neighborhood" required></label>
+                <label>Street<input id="pickup-address" name="street" type="text" placeholder="Street name" required></label>
+                <label>Building number<input id="pickup-building" name="building" type="text" placeholder="Building or house number" required></label>
+                <label class="address-optional">Apartment / floor <span>Optional</span><input id="pickup-unit" name="unit" type="text" placeholder="Apartment, floor, or unit"></label>
+                <label class="address-optional">Pickup instructions <span>Optional</span><input id="pickup-notes" name="notes" type="text" placeholder="Landmark, gate code, or other notes"></label>
+            </div>
+            <label class="pickup-time-field address-editor-grid"><span>Preferred pickup time <small>Optional · Jordan time</small></span><input id="pickup-time" name="time" type="datetime-local"></label>
+            <div class="map-heading"><div><h3>Pin your pickup location</h3><p>Click the map to place the marker as close as possible to your address.</p></div><button class="map-current-location" id="pickup-current-location" type="button">Use my location</button></div>
+            <div id="pickup-map" aria-label="Map to select pickup location"></div>
+            <p class="map-selection" id="pickup-map-selection">No exact map point selected yet.</p>
+            <input id="pickup-latitude" name="latitude" type="hidden">
+            <input id="pickup-longitude" name="longitude" type="hidden">
+            <p class="address-error" id="pickup-error" role="alert" hidden>Please fill in the required address fields.</p>
+            <label class="pickup-saved"><input type="checkbox" id="pickup-save-address" checked>Save this address for future pickups</label>
+            <div class="address-dialog-actions"><button class="btn-secondary btn--pill" id="pickup-cancel" type="button">Cancel</button><button class="btn-primary btn--pill" type="submit">Save pickup details</button></div>
+        </form>
+    </dialog><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script><script src="pickup.js"></script><script src="../shared/notifications.js"></script><script src="notifications.js"></script><script src="../navbar/navbar.js"></script></body></html>

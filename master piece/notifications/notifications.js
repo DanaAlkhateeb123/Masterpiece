@@ -65,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
             link.href=allowed.indexOf(n.href)>=0?n.href:allowed[2];link.addEventListener('click',function(){n.read=true;save();});heading.append(link);copy.append(heading,el('p','',n.body));
             if (window.NostalgiaPickup.eligible(n)) {
                 var pickupAction=el('div','pickup-action');
-                var pickupButton=el('button','pickup-button',n.pickup?'View Pickup Details':'Arrange Pickup');
+                var pickupButton=el('button','pickup-button',window.NostalgiaPickup.hasDetails(n)?'View Pickup Details':'Arrange Pickup');
                 pickupButton.type='button';pickupButton.setAttribute('aria-haspopup','dialog');pickupButton.setAttribute('aria-controls','pickup-dialog');
                 pickupButton.addEventListener('click',function(){window.NostalgiaPickup.open(n.id);});
                 pickupAction.append(pickupButton);
-                if(n.pickup)pickupAction.append(el('span','pickup-status','Pickup Scheduled'));
+                if(window.NostalgiaPickup.hasDetails(n))pickupAction.append(el('span','pickup-status','Pickup Scheduled'));
                 copy.append(pickupAction);
             }
             var thumb=el('span');

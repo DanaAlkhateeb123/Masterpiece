@@ -42,30 +42,6 @@
 .address-pin { color: var(--color-primary); font-size: 11px; }
 
 /* Address editor and map picker */
-.address-dialog { width: min(760px, calc(100% - 28px)); max-width: none; max-height: 92vh; padding: 0; overflow: auto; color: var(--color-text); background: var(--color-white); border: 1px solid var(--color-card-border); border-radius: 22px; box-shadow: 0 24px 80px color-mix(in srgb, var(--color-text) 24%, transparent); }
-.address-dialog::backdrop { background: color-mix(in srgb, var(--color-text) 52%, transparent); backdrop-filter: blur(3px); }
-.address-editor { padding: 30px; }
-.address-dialog-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
-.address-eyebrow { margin: 0 0 4px; color: var(--color-accent); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
-.address-dialog-head h2 { margin: 0; font-size: 1.7rem; }
-.address-close { display: grid; width: 36px; height: 36px; flex: 0 0 36px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: var(--color-surface); color: var(--color-muted); font-size: 24px; line-height: 1; cursor: pointer; }
-.address-close:hover { background: var(--color-tint); color: var(--color-primary); }
-.address-editor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.address-editor-grid label { display: grid; gap: 7px; color: var(--color-muted); font-size: 11px; font-weight: 600; letter-spacing: .045em; text-transform: uppercase; }
-.address-editor-grid input, .address-editor-grid select { width: 100%; min-width: 0; height: 44px; padding: 0 12px; border: 1px solid var(--color-border); border-radius: 10px; background: var(--color-white); color: var(--color-text); font-size: 13px; font-weight: 400; letter-spacing: normal; text-transform: none; }
-.address-editor-grid input:focus, .address-editor-grid select:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 10%, transparent); }
-.address-editor-grid .address-optional span { color: #9a8e89; font-size: 10px; font-weight: 400; letter-spacing: 0; text-transform: none; }
-.map-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin: 24px 0 10px; }
-.map-heading h3 { margin: 0; font-family: var(--font-body); font-size: 14px; font-weight: 600; }
-.map-heading p { margin: 4px 0 0; color: var(--color-muted); font-size: 11px; }
-.map-current-location { flex: 0 0 auto; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: var(--radius-pill); background: var(--color-white); color: var(--color-primary); font-size: 11px; cursor: pointer; }
-.map-current-location:hover { background: var(--color-surface); }
-#delivery-map { height: 280px; overflow: hidden; border: 1px solid var(--color-card-border); border-radius: 14px; background: #f2efea; z-index: 0; }
-.map-selection { margin: 8px 0 0; color: var(--color-muted); font-size: 11px; }
-.address-error { margin: 14px 0 0; color: var(--color-error); font-size: 12px; }
-.address-dialog-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px; padding-top: 18px; border-top: 1px solid #f0ebe7; }
-.address-dialog-actions button { padding: 11px 20px; }
-
 /* Payment options */
 .pay-options { display: grid; gap: 10px; }
 

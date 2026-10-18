@@ -5,12 +5,12 @@
 .profile-banner-avatar { position: relative; display: grid; place-items: center; width: 124px; height: 124px; flex: 0 0 124px; border: 0; border-radius: 50%; background: #eee1d2; color: #674a3f; font: 42px var(--font-display); box-shadow: none; transition: transform .35s; }
 .profile-banner-avatar:hover { transform: rotate(-3deg); }
 .profile-banner-avatar > img { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-.camera-edit { position: absolute; right: -2px; bottom: 0; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 3px solid var(--color-background); border-radius: 50%; background: #493036; color: #fff7e8; cursor: pointer; transition: transform .25s, background .25s; }
-.camera-edit:hover { transform: rotate(8deg) scale(1.08); background: #795249; }
+.camera-edit { position: absolute; right: -2px; bottom: 0; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 3px solid var(--color-background); border-radius: 50%; background: var(--color-primary); color: #fff7e8; cursor: pointer; transition: transform .25s, background .25s; }
+.camera-edit:hover { transform: rotate(8deg) scale(1.08); background: var(--color-primary-light); }
 .camera-edit svg, .profile-edit-button svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .profile-banner-copy { min-width: 0; }
 .profile-kicker { display: block; margin-bottom: 10px; color: #977650; font-size: 10px; font-weight: 600; letter-spacing: .23em; }
-.profile-banner-copy h1 { margin: 0 0 12px; color: #302b29; font-family: Georgia, var(--font-heading), serif; font-size: clamp(2rem, 3.7vw, 3.2rem); font-weight: 400; line-height: 1.04; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.profile-banner-copy h1 { margin: 0 0 12px; color: #302b29; font-family: var(--font-heading); font-size: clamp(2rem, 3.7vw, 3.2rem); font-weight: 400; line-height: 1.04; letter-spacing: -.035em; overflow-wrap: anywhere; }
 .profile-banner-copy > p { display: inline; margin: 0; color: #8c807b; font-size: 12px; }
 .profile-verified { display: inline-flex; align-items: center; gap: 6px; margin-left: 14px; padding: 0; border: 0; border-radius: 0; background: none; color: #3f855e; font-size: 11px; }
 .profile-verified > span { color: #3f855e; }
@@ -24,7 +24,7 @@
 .panel-heading p { margin: 8px 0 0; color: #8c807b; font-size: 12px; line-height: 1.6; }
 .personal-panel { padding: 28px 32px; font-family: var(--font-body); }
 .personal-panel .panel-heading { margin-bottom: 18px; }
-.personal-panel .panel-heading h2 { color: #302b29; font-family: Georgia, var(--font-heading), serif; font-size: 24px; font-weight: 400; letter-spacing: -.02em; }
+.personal-panel .panel-heading h2 { color: #302b29; font-family: var(--font-heading); font-size: 24px; font-weight: 400; letter-spacing: -.02em; }
 .personal-rows { display: grid; gap: 0; }
 .personal-rows > div { display: grid; grid-template-columns: minmax(120px, .85fr) minmax(0, 1.2fr); align-items: center; gap: 16px; min-width: 0; padding: 19px 0; border: 0; border-bottom: 1px solid #eee7e2; border-radius: 0; background: transparent; transition: background .25s; animation: profile-arrive .55s .22s both; }
 .personal-rows > div:hover { background: #faf8f6; }
@@ -33,7 +33,7 @@
 .personal-rows span { color: #8c807b; font-family: var(--font-body); font-size: 15px; font-weight: 400; }
 .personal-rows strong { min-width: 0; overflow-wrap: anywhere; color: #302b29; font-family: var(--font-body); font-size: 15px; font-weight: 500; text-align: right; }
 .quick-actions { display: flex; flex-direction: column; align-self: start; gap: 5px; margin-top: 12px; padding: 6px 0 6px 20px; border: 0; border-left: 1px solid #d8c5aa; border-radius: 0; background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; animation-delay: .24s; }
-.quick-actions h2 { margin: 0 0 12px 10px; color: #8a7358; font: 600 10px var(--font-body); letter-spacing: .18em; text-transform: uppercase; }
+.quick-actions h2 { margin: 0 0 12px 10px; color: #8a7358; font: 600 10px var(--font-heading); letter-spacing: .18em; text-transform: uppercase; }
 .quick-actions > a { --action-color: #785545; --action-bg: #f3ede5; display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 7px 10px; border: 1px solid transparent; border-radius: 12px; background: transparent; color: #423a36; font-size: 12px; font-weight: 500; transition: transform .25s, background .25s, border-color .25s; }
 .quick-actions > a:nth-of-type(2) { --action-color: #80652d; --action-bg: #f6efdf; }
 .quick-actions > a:nth-of-type(3) { --action-color: #4f7563; --action-bg: #edf3ee; }
@@ -53,7 +53,7 @@
 .profile-edit-dialog::backdrop { background: rgba(35,24,23,.55); backdrop-filter: blur(4px); }
 .edit-form { padding: 32px; font-family: var(--font-body); }
 .edit-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-.edit-heading h2 { margin: 6px 0 0; color: #302b29; font-family: Georgia, var(--font-heading), serif; font-size: 30px; font-weight: 400; letter-spacing: -.02em; }
+.edit-heading h2 { margin: 6px 0 0; color: #302b29; font-family: var(--font-heading); font-size: 30px; font-weight: 400; letter-spacing: -.02em; }
 .eyebrow { color: #8c807b; font-size: 10px; font-weight: 500; letter-spacing: .16em; }
 .edit-photo { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; padding: 18px; border: 0; border-radius: 18px; background: #faf8f6; cursor: pointer; }
 .edit-avatar { position: relative; display: grid; width: 68px; height: 68px; flex: 0 0 68px; place-items: center; overflow: hidden; border-radius: 50%; background: #eadbd1; color: var(--color-primary); font-family: var(--font-heading); font-size: 19px; }

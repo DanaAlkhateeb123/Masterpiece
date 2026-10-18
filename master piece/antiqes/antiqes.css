@@ -2,6 +2,10 @@
 .section-wrap { width: min(100%, 1300px); margin-inline: auto; }
 .eyebrow { color: #9a725f; font-size: 9px; font-weight: 700; letter-spacing: .2em; }
 .antiques-hero { position: relative; display: flex; width: 100vw; min-height: 284px; align-items: center; margin-top: 16px; margin-left: calc(50% - 50vw); padding: 32px clamp(30px, 6vw, 76px); overflow: hidden; background: #d3b8a2 url("https://images.unsplash.com/photo-1679973957366-2f926a250629?auto=format&fit=crop&w=1900&q=88") center 50%/cover no-repeat; }
+.hero-clock-layer { position: absolute; pointer-events: none; }
+.hero-clock-layer svg { display: block; width: 100%; height: 100%; }
+@media (prefers-reduced-motion: reduce) { [data-clock-second] { visibility: hidden; } }
+.reduce-motion [data-clock-second] { visibility: hidden; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(251,242,233,.98) 0%, rgba(248,236,224,.91) 35%, rgba(239,219,199,.45) 58%, rgba(40,25,19,.08) 100%); }
 .hero-content { position: relative; z-index: 1; max-width: 510px; }
 .hero-content h1 { margin: 7px 0 10px; color: #482726; font-size: clamp(2.35rem, 5vw, 3.55rem); font-weight: 500; letter-spacing: -.045em; line-height: .98; }
@@ -64,7 +68,7 @@
 .antique-price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 5px; margin-top: auto; margin-bottom: 8px; }
 .antique-price-row strong { color: #492626; font-family: var(--font-heading); font-size: 15px; font-weight: 600; white-space: nowrap; }
 .antique-price-row small { overflow: hidden; color: #a08b80; font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
-.listing-button { display: flex; min-height: 30px; align-items: center; justify-content: center; gap: 7px; border: 1px solid #6a3834; border-radius: 8px; font-size: 9px; font-weight: 600; transition: color .2s ease, background .2s ease, transform .2s ease; }
+.listing-button { display: flex; min-height: 30px; align-items: center; justify-content: center; gap: 7px; border: 1px solid var(--color-primary); border-radius: 8px; font-size: 9px; font-weight: 600; transition: color .2s ease, background .2s ease, transform .2s ease; }
 .listing-button:hover { transform: translateY(-1px); }
 .listing-button.filled { background: var(--color-primary); color: var(--color-white); }
 .listing-button.filled:hover { background: var(--color-primary-light); }
@@ -72,7 +76,7 @@
 .listing-button.outline:hover { background: var(--color-primary-light); }
 .no-antique-results { margin: 14px 0; color: var(--color-muted); font-size: 13px; }
 
-.auction-banner { position: relative; display: grid; grid-template-columns: minmax(0,1.5fr) 130px minmax(110px,.75fr) auto; align-items: center; gap: clamp(15px,3vw,34px); min-height: 154px; margin: 27px auto 0; padding: 20px clamp(20px,4vw,42px); overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-white) 13%, transparent); border-radius: 15px; background: radial-gradient(ellipse at 88% 14%,rgba(152,99,73,.23),transparent 30%),linear-gradient(115deg,#48201f,#592725 55%,#3b1b1d); color: #f6e9dc; box-shadow: 0 9px 25px rgba(60,30,28,.12); }
+.auction-banner { position: relative; display: grid; grid-template-columns: minmax(0,1.5fr) 130px minmax(110px,.75fr) auto; align-items: center; gap: clamp(15px,3vw,34px); min-height: 154px; margin: 27px auto 0; padding: 20px clamp(20px,4vw,42px); overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-white) 13%, transparent); border-radius: 15px; background: radial-gradient(ellipse at 88% 14%,rgba(152,99,73,.23),transparent 30%),linear-gradient(115deg,var(--color-primary),var(--color-primary-light) 55%,var(--color-primary-dark)); color: #f6e9dc; box-shadow: 0 9px 25px rgba(60,30,28,.12); }
 .auction-banner::after { position: absolute; right: 13px; bottom: -28px; color: rgba(232,202,170,.11); content: "✦"; font-family: var(--font-heading); font-size: 170px; pointer-events: none; }
 .auction-intro { position: relative; z-index: 1; display: flex; align-items: flex-start; gap: 17px; }
 .auction-intro > svg { width: 29px; height: 29px; flex: 0 0 29px; margin-top: 4px; fill: none; stroke: #e5c39c; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }

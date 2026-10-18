@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         'heirloom-necklace': {
             title: 'Heirloom Statement Necklace', price: '320 JD', condition: 'Very Good', material: 'Gold-tone metal and stones', location: 'Amman, Jordan', seller: 'Maya Khalil', initials: 'MK', category: 'Antiques · Jewelry', rating: '5/5',
-            image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=850&q=85',
+            image: 'https://i.etsystatic.com/25780867/r/il/1889ba/7194662175/il_fullxfull.7194662175_hy1n.jpg',
             description: 'A richly detailed heirloom-inspired necklace, selected for its vintage character and striking craftsmanship. A special piece for collectors and lovers of statement jewelry.'
         }
     };

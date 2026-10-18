@@ -10,9 +10,25 @@
         sidebarStyles.href = sidebarCssUrl.href;
         document.head.appendChild(sidebarStyles);
 
-        const response = await fetch(new URL("../navbar/navbar.html", window.location.href));
+        const navbarUrl = new URL("../navbar/navbar.html", window.location.href);
+        navbarUrl.searchParams.set("v", "4");
+        const response = await fetch(navbarUrl, { cache: "no-store" });
         if (!response.ok) throw new Error(`Navbar request failed: ${response.status}`);
         mount.innerHTML = await response.text();
+
+        // Keep the notifications entry available even when an older cached
+        // navbar template is returned by the browser or live server.
+        const navActions = mount.querySelector(".nav-actions");
+        if (navActions && !navActions.querySelector(".nav-notifications")) {
+            const notificationLink = document.createElement("a");
+            notificationLink.className = "nav-notifications";
+            notificationLink.href = new URL("../notifications/notifications.html", window.location.href).href;
+            notificationLink.dataset.page = "notifications";
+            notificationLink.setAttribute("aria-label", "Notifications");
+            notificationLink.title = "Notifications";
+            notificationLink.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/></svg>';
+            navActions.appendChild(notificationLink);
+        }
 
         // Render the signed-in state as soon as the shared navbar is mounted.
         // This keeps the account identity visible even while the drawer loads.
@@ -74,6 +90,9 @@
                 link.classList.add("active");
                 link.setAttribute("aria-current", "page");
             }
+        });
+        mount.querySelectorAll(".nav-notifications").forEach((link) => {
+            link.addEventListener("click", () => link.classList.add("active"));
         });
 
         const query = new URLSearchParams(window.location.search).get("search");

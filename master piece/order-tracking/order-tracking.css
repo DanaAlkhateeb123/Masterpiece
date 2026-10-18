@@ -295,7 +295,7 @@
 .completion-product { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; align-items: center; gap: 14px; margin-top: 22px; padding: 14px; border: 1px solid var(--color-card-border); border-radius: 14px; background: var(--color-surface); text-align: left; }
 .completion-product img { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; }
 .completion-product-info { display: grid; gap: 3px; min-width: 0; }
-.completion-product-info h3 { margin: 0; font-family: var(--font-body); font-size: 14px; font-weight: 600; }
+.completion-product-info h3 { margin: 0; font-family: var(--font-heading); font-size: 14px; font-weight: 600; }
 .completion-product-info span, .completion-delivery-note { color: var(--color-muted); font-size: 11px; }
 .completion-total { color: var(--color-primary); font-size: 14px; white-space: nowrap; }
 .completion-delivery-note { margin: 6px 0 0 !important; text-align: right; }
@@ -313,7 +313,7 @@
 .track-head { margin-bottom: 30px; padding-bottom: 0; border: 0; }
 .track-back { display: block; width: fit-content; margin-bottom: 26px; color: #8c807b; font-size: 12px; }
 .track-eyebrow { margin-bottom: 12px; color: #a18455; font-size: 10px; letter-spacing: .2em; }
-.track-heading { color: #302b29; font: 400 clamp(30px, 4vw, 46px)/1.13 Georgia, serif; letter-spacing: -.035em; }
+.track-heading { color: #302b29; font: 400 clamp(30px, 4vw, 46px)/1.13 var(--font-heading); letter-spacing: -.035em; }
 .track-heading::after { display: none; }
 .track-subtitle { margin: 12px 0 0; color: #8c807b; font-size: 13px; line-height: 1.7; }
 .track-ref span { color: #a09182; font-size: 10px; }
@@ -321,29 +321,29 @@
 .track-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 28px; align-items: stretch; }
 .journey-panel, .track-aside { display: flex; flex-direction: column; min-width: 0; min-height: 640px; padding: 34px; border: 1px solid #eee7e1; border-radius: 22px; background: #fff; box-shadow: 0 8px 28px #302b2904; animation: journey-enter .6s .1s both; }
 .journey-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 30px; }
-.journey-heading h2, .summary-heading { margin: 0; color: #302b29; font: 400 24px Georgia, serif; }
+.journey-heading h2, .summary-heading { margin: 0; color: #302b29; font: 400 24px var(--font-heading); }
 .journey-heading > span { color: #a09182; font-size: 10px; }
 .track-list { flex: 1; padding: 0 0 28px; }
 .track-step::before { width: 1px; background: #e9e1d6; }
 .track-step.is-done::before { background: #c9b28a; }
 .track-marker { background: #fff; border-color: #e0d5c7; box-shadow: none; }
 .is-done .track-marker { border-color: #d9c6a8; background: #ede2d1; color: #95713d; }
-.is-current .track-marker { border-color: #634048; background: #634048; box-shadow: 0 0 0 5px #6340480c; }
+.is-current .track-marker { border-color: var(--color-primary); background: var(--color-primary); box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-primary) 5%, transparent); }
 .track-step-icon { width: 34px; height: 34px; flex-basis: 34px; margin-left: 14px; margin-top: -3px; border-radius: 10px; background: #f6f1eb; color: #a48a65; }
-.is-current .track-step-icon { background: #f0e7e6; color: #634048; }
+.is-current .track-step-icon { background: #f0e7e6; color: var(--color-primary); }
 .is-pending .track-step-icon { background: #faf8f5; color: #b7ab9d; }
 .track-body { flex: 1; padding-bottom: 28px; }
-.track-title h3 { color: #4b3c34; font: 500 14px var(--font-body); }
+.track-title h3 { color: #4b3c34; font: 500 14px var(--font-heading); }
 .step-time { color: #aa9888; font-size: 10px; }
 .track-body p { margin-top: 7px; color: #94867c; font-size: 11px; line-height: 1.7; }
-.is-current .track-title h3 { color: #634048; font-weight: 600; }
+.is-current .track-title h3 { color: var(--color-primary); font-weight: 600; }
 .current-badge { padding: 4px 7px; border: 0; border-radius: 6px; background: #f0e7e6; color: #79555b; font-size: 8px; }
 .is-pending .track-title h3 { color: #9e9287; }
 .confirm-link { width: 100%; margin: auto 0 0; padding: 13px 16px; border-color: #dacbb7; border-radius: 11px; color: #795f43; font-size: 11px; letter-spacing: .04em; text-transform: none; }
 .summary-heading { margin-bottom: 24px; }
 .aside-product { padding: 16px; border-radius: 14px; background: #faf8f5; }
 .aside-product .thumb { flex-shrink: 0; overflow: hidden; border-radius: 11px; }
-.aside-product h4 { color: #423630; font: 500 13px/1.5 var(--font-body); }
+.aside-product h4 { color: #423630; font: 500 13px/1.5 var(--font-heading); }
 .aside-price { margin-top: 7px; color: #654a36; font-size: 15px; font-weight: 600; }
 .aside-price-note { color: #a09182; font-size: 10px; }
 .aside-seller { padding-top: 0; border-top: 0; }

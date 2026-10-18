@@ -1,4 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
+    var hero = document.querySelector('.antiques-hero');
+    if (hero) {
+        var clockLayer = document.createElement('div');
+        clockLayer.className = 'hero-clock-layer';
+        clockLayer.setAttribute('aria-hidden', 'true');
+        var numerals = ['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
+        var dial = '';
+        for (var tick = 0; tick < 60; tick += 1) {
+            dial += '<path d="M0 -238 v' + (tick % 5 === 0 ? '16' : '7') + '" transform="rotate(' + tick * 6 + ')"/>';
+        }
+        var numbers = numerals.map(function (label, index) {
+            var angle = index * Math.PI / 6;
+            return '<text x="' + Math.sin(angle) * 194 + '" y="' + (-Math.cos(angle) * 194 + 13) + '">' + label + '</text>';
+        }).join('');
+        clockLayer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1900 1900">' +
+            '<defs><radialGradient id="hero-dial-paper"><stop stop-color="#f8f2df"/><stop offset=".8" stop-color="#e9dfc8"/><stop offset="1" stop-color="#bcae91"/></radialGradient></defs>' +
+            '<g transform="translate(960 780) scale(.96 1.04)">' +
+            '<circle r="244" fill="url(#hero-dial-paper)" stroke="#9c8968" stroke-width="3"/>' +
+            '<g fill="none" stroke="#6b5c49" stroke-width="2">' + dial + '<circle r="219" stroke-width="1"/><circle r="158" stroke-width="1" opacity=".4"/></g>' +
+            '<g fill="#29283b" font-family="Georgia,serif" font-size="42" text-anchor="middle">' + numbers + '</g>' +
+            '<g fill="#4a3620" stroke="#b49a61" stroke-width="2"><g data-clock-hour><path d="M-7 25 L-10 -70 L0 -139 L10 -70 L7 25Z"/><circle cy="-83" r="11" fill="#e9dfc8"/></g>' +
+            '<g data-clock-minute><path d="M-5 32 L-7 -130 L0 -195 L7 -130 L5 32Z"/><circle cy="-138" r="8" fill="#e9dfc8"/></g></g>' +
+            '<g data-clock-second stroke="#864333" stroke-width="3"><path d="M0 42V-214"/><circle cy="31" r="8" fill="none"/></g>' +
+            '<circle r="12" fill="#a08249" stroke="#46341e" stroke-width="3"/></g></svg>';
+        hero.insertBefore(clockLayer, hero.firstChild);
+        var hourHand = clockLayer.querySelector('[data-clock-hour]');
+        var minuteHand = clockLayer.querySelector('[data-clock-minute]');
+        var secondHand = clockLayer.querySelector('[data-clock-second]');
+        function positionClock() {
+            var size = Math.max(hero.clientWidth, hero.clientHeight);
+            var horizontalPosition = parseFloat(window.getComputedStyle(hero).backgroundPositionX) / 100;
+            clockLayer.style.width = clockLayer.style.height = size + 'px';
+            clockLayer.style.left = (hero.clientWidth - size) * horizontalPosition + 'px';
+            clockLayer.style.top = (hero.clientHeight - size) * .5 + 'px';
+        }
+        var clockStartTime = Date.now();
+        var clockAnimationStart = performance.now();
+        function updateClock() {
+            var now = new Date(clockStartTime + (performance.now() - clockAnimationStart) * 6);
+            var seconds = now.getSeconds() + now.getMilliseconds() / 1000;
+            var minutes = now.getMinutes() + seconds / 60;
+            hourHand.setAttribute('transform', 'rotate(' + ((now.getHours() % 12 + minutes / 60) * 30) + ')');
+            minuteHand.setAttribute('transform', 'rotate(' + minutes * 6 + ')');
+            secondHand.setAttribute('transform', 'rotate(' + seconds * 6 + ')');
+        }
+        positionClock();
+        updateClock();
+        new ResizeObserver(positionClock).observe(hero);
+        window.setInterval(function () { if (!document.hidden) updateClock(); }, 40);
+        document.addEventListener('visibilitychange', updateClock);
+    }
     var listingRail = document.getElementById('antique-listings');
     var listingCards = Array.prototype.slice.call(document.querySelectorAll('[data-antique-card]'));
     var typeFilter = document.getElementById('listing-type-filter');

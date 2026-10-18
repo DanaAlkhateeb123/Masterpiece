@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="../shared/global.css">
     <link rel="stylesheet" href="../shared/components.css">
     <link rel="stylesheet" href="../shared/order-confirmation.css">
-    <link rel="stylesheet" href="checkout-order-summary.css">
+    <link rel="stylesheet" href="../shared/address-editor.css"><link rel="stylesheet" href="checkout-order-summary.css">
     <link rel="stylesheet" href="../navbar/navbar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="../shared/headings.css">
 </head>
 <body>
     <div id="site-header"></div>
@@ -120,7 +121,7 @@
     <dialog class="cash-confirm-dialog" id="cash-confirm-dialog" aria-labelledby="cash-confirm-title">
         <button class="cash-confirm-close" id="cash-confirm-close" type="button" aria-label="Close confirmation">&times;</button>
         <div class="cash-confirm-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v10m0 4v.1M4.9 19h14.2a1.5 1.5 0 0 0 1.3-2.2L13.3 4.5a1.5 1.5 0 0 0-2.6 0L3.6 16.8A1.5 1.5 0 0 0 4.9 19Z"/></svg></div>
-        <h2 id="cash-confirm-title">Confirm cash order?</h2>
+        <h2 id="cash-confirm-title">Confirm cash <span class="heading-accent">order?</span></h2>
         <p>You’re placing an order for the <strong>Compact Digital Camera</strong> from <strong>Zaid Omar</strong>. Pay <strong>$100</strong> when it’s delivered.</p>
         <div class="cash-confirm-actions"><button class="btn-secondary btn--pill" id="cancel-cash-order" type="button">Cancel</button><button class="btn-primary btn--pill" id="confirm-cash-order" type="button">Confirm order</button></div>
     </dialog>

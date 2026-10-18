@@ -28,7 +28,7 @@
         });
         return items.filter(function (el) {
             if (/^(SCRIPT|STYLE|DIALOG|TEMPLATE|LINK)$/.test(el.tagName)) return false;
-            if (el.hidden || el.classList.contains('reveal')) return false;
+            if (el.hidden || el.classList.contains('reveal') || el.hasAttribute('data-no-reveal')) return false;
             var style = window.getComputedStyle(el);
             if (/^(fixed|absolute|sticky)$/.test(style.position)) return false;   // keep overlays and sticky bars untouched
             if (style.display === 'none' || style.display === 'contents') return false;

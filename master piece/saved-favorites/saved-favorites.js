@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     var list = document.getElementById('favorites-list');
     var count = document.getElementById('favorites-count');
     var empty = document.getElementById('favorites-empty');
@@ -9,7 +9,7 @@
         'antique-vase': { title: 'Antique Vase', image: 'https://i.etsystatic.com/66105071/r/il/b477b5/8535133619/il_600x600.8535133619_2mo2.jpg', alt: 'Antique ceramic vase', seller: 'Omar Khalil', location: 'Amman, Jordan', price: '120 JD', condition: 'Fixed Price' },
         'old-painting': { title: 'Old Landscape Painting', image: 'https://www.bing.com/th/id/OIP.3yklNWYKY0TgYf5nXvi4mwHaHa?w=193&h=193&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=ImgAns&rm=2', alt: 'Classic framed landscape painting', seller: 'Lina Saleh', location: 'Irbid, Jordan', price: '200 JD', condition: 'Auction' },
         'vintage-lamp': { title: 'Vintage Table Lamp', image: 'https://i.etsystatic.com/61107663/c/2830/2830/157/151/il/c46794/8597901968/il_680x540.8597901968_6o93.jpg', alt: 'Vintage brass table lamp', seller: 'Sami Nasser', location: 'Zarqa, Jordan', price: '250 JD', condition: 'Fixed Price' },
-        'heirloom-necklace': { title: 'Heirloom Statement Necklace', image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=850&q=85', alt: 'Heirloom gold statement necklace', seller: 'Maya Khalil', location: 'Amman, Jordan', price: '320 JD', condition: 'Auction' }
+        'heirloom-necklace': { title: 'Heirloom Statement Necklace', image: 'https://i.etsystatic.com/25780867/r/il/1889ba/7194662175/il_fullxfull.7194662175_hy1n.jpg', alt: 'Heirloom gold statement necklace', seller: 'Maya Khalil', location: 'Amman, Jordan', price: '320 JD', condition: 'Auction' }
     };
     var savedCatalog = {};
 

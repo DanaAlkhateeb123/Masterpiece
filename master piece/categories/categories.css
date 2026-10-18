@@ -1,7 +1,10 @@
-﻿/* Styles that only the Explore Categories page needs */
+/* Styles that only the Explore Categories page needs */
 
 .categories-main {
-    padding-block: 22px 42px;
+    padding-block: 0 42px;
+}
+
+.categories-content {
     padding-inline: 8px;
 }
 
@@ -41,7 +44,7 @@
     transition: transform .35s cubic-bezier(.16, 1, .3, 1), box-shadow .35s ease, border-color .25s ease;
 }
 .category-tab img { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .7s cubic-bezier(.16, 1, .3, 1), filter .35s ease; }
-.category-tab img { filter: saturate(.68) sepia(.16) contrast(.94); }
+.category-tab img { filter: none; }
 .category-tab-shade { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(61, 35, 38, .02) 10%, rgba(61, 35, 38, .16) 43%, rgba(48, 29, 29, .78) 100%); transition: background .3s ease; }
 .category-tab-copy { position: relative; z-index: 2; display: grid; gap: 7px; width: 100%; padding: 15px 14px; }
 .category-tab-copy small { color: var(--color-accent-light); font-size: 8px; font-weight: 600; letter-spacing: .12em; line-height: 1.4; }
@@ -52,7 +55,7 @@
 .category-tab:hover img { transform: scale(1.07); }
 .category-tab:hover .category-tab-copy b { transform: translate(2px, -2px); }
 .category-tab.is-active { border: 2px solid var(--color-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent), 0 12px 28px color-mix(in srgb, var(--color-text) 18%, transparent); }
-.category-tab.is-active img { filter: saturate(1.08); }
+.category-tab.is-active img { filter: none; }
 .category-tab:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
 
 @media (min-width: 640px) {
@@ -62,12 +65,13 @@
     .category-tab-copy > span { font-size: 11px; }
 }
 @media (min-width: 1024px) {
-    .categories-main { padding-inline: 12px; }
+    .categories-content { padding-inline: 12px; }
     .category-tabs-scroll { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
     .category-tab { aspect-ratio: 1.42 / 1; border-radius: 16px; }
     .category-tab-copy { padding: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
+    .categories-section-title h1 { animation: none; }
     .category-tab, .category-tab img, .category-tab-copy b { transition: none; }
     .category-tab:hover, .category-tab:hover img, .category-tab:hover .category-tab-copy b { transform: none; }
 }
@@ -271,3 +275,39 @@
     font-weight: 600;
 }
 
+
+/* Simple collection intro and continuous ribbon. */
+.collection-ribbon { position: relative; overflow: hidden; margin-top: 16px; background: var(--color-primary); color: #e5cdb2; }
+.ribbon-track { display: flex; width: max-content; animation: collection-ribbon-scroll 38s linear infinite; }
+.ribbon-group { display: flex; align-items: center; justify-content: space-around; flex-shrink: 0; gap: 28px; min-width: 100vw; padding: 14px 28px; white-space: nowrap; }
+.ribbon-group span { font: 14px Georgia,serif; }
+.ribbon-group i { color: #c2a074; font-size: 17px; font-style: normal; }
+.ribbon-pause { position: absolute; top: 0; bottom: 0; right: 0; display: grid; place-items: center; width: 38px; padding: 0; border: 0; background: var(--color-primary); color: #e5cdb2; cursor: pointer; }
+.ribbon-pause svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; }
+.collection-ribbon.is-paused .ribbon-track { animation-play-state: paused; }
+.categories-hero { display: flex; align-items: center; background: transparent; text-align: center; }
+.categories-hero-copy { width: min(1240px,calc(100% - 64px)); margin: 0 auto; padding: 22px 0 16px; }
+.categories-title-kicker { color: #a47951; font-size: 11px; font-weight: 600; letter-spacing: .18em; }
+.categories-hero h1 { margin: 10px 0; color: #422320; font: 400 clamp(36px,4.4vw,56px)/1 var(--font-heading); letter-spacing: -.055em; }
+.categories-hero h1 em { color: #a58460; font-style: normal; }
+.categories-hero-copy > p { margin: 10px 0 0; color: #7f6d62; font-size: clamp(13px,1.2vw,17px); line-height: 1.6; }
+.hero-gold-rule { position: relative; display: block; width: 205px; height: 1px; margin: 14px auto 0; background: linear-gradient(90deg,#bd9b6d,transparent); }
+.hero-gold-rule::after { content: ''; position: absolute; top: -4px; left: 105px; width: 7px; height: 7px; border: 1px solid #a88154; background: #f6eee3; transform: rotate(45deg); }
+.categories-content { padding-top: 8px; }
+.category-tab img { filter: none; }
+.category-tab-shade { background: linear-gradient(0deg,rgba(0,0,0,.55),transparent 65%); }
+.category-tab-copy strong { font-family: var(--font-heading); font-weight: 400; letter-spacing: -.035em; }
+.category-tab[data-category="electronics"] img { object-position: center; }
+.category-tab[data-category="books"] img { object-position: center; }
+.collection-ribbon button:focus-visible { outline: 2px solid #ead7ad; outline-offset: -4px; }
+@keyframes collection-ribbon-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media(max-width:700px) {
+ .categories-hero-copy { width: calc(100% - 40px); }
+ .categories-title-kicker { font-size: 9px; }
+ .hero-break { display: none; }
+ .categories-hero-copy > p { max-width: 340px; margin-inline: auto; }
+ .ribbon-group { gap: 24px; padding-block: 12px; }
+ .ribbon-group span { font-size: 12px; }
+}
+@media(prefers-reduced-motion:reduce) { .ribbon-track { animation: none; } }
+.reduce-motion .ribbon-track { animation: none; }

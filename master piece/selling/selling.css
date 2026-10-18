@@ -47,7 +47,9 @@
 }
 
 .sell-column-head h2 { margin: 0; color: var(--color-primary); font-size: 1.55rem; }
-.sell-column-head span { font-size: 12px; color: var(--color-muted); }
+#sell-details-title { font-size: clamp(30px, 3vw, 40px); line-height: 1.1; }
+.sell-column-head > span { font-size: 12px; color: var(--color-muted); }
+#sell-details-title .heading-accent { font-size: inherit; }
 
 .sell-fields { display: grid; gap: 24px; margin-bottom: 32px; }
 .sell-two { display: grid; grid-template-columns: 1fr; gap: 16px; }

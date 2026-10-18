@@ -100,8 +100,8 @@
 .photo-upload:hover { transform: translateY(-2px); border-color: var(--color-accent); box-shadow: 0 8px 20px color-mix(in srgb, var(--color-primary) 13%, transparent); }
 .photo-upload:focus-within { outline: 2px solid var(--color-accent); outline-offset: 3px; }
 .photo-empty { position: relative; display: flex; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: var(--color-muted); font-size: 10px; font-weight: 600; text-align: center; }
-.photo-empty > span { position: absolute; top: 50%; left: 0; display: block; width: 100%; text-align: center; transform: translateY(-50%); }
-.photo-empty > .icon { position: absolute; top: 2px; }
+.photo-empty > span { position: static; display: block; width: 100%; text-align: center; transform: none; line-height: 1.3; }
+.photo-empty > .icon { position: static; flex-shrink: 0; }
 .photo-empty .icon { width: 24px; height: 24px; color: var(--color-primary); stroke-width: 1.6; }
 .photo-upload:hover .photo-empty { color: var(--color-primary); }
 .photo-preview { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
@@ -179,3 +179,15 @@
     .phone-row .field { padding-inline: 6px; }
     .phone-row input { font-size: 10px !important; }
 }
+
+/* Same white surfaces and form treatment as the address editor. */
+.profile-main { background: transparent; }
+.profile-form { gap: 16px; }
+.form-label { margin-bottom: 7px; color: var(--color-muted); font-size: 11px; font-weight: 600; letter-spacing: .045em; text-transform: uppercase; }
+.field { min-height: 44px; border-radius: 10px; background: var(--color-white); box-shadow: none; font-size: 13px; }
+.field:focus-within { border-color: var(--color-primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 10%, transparent); }
+.photo-upload { width: 96px; height: 96px; flex-basis: 96px; box-shadow: none; }
+.photo-empty { gap: 8px; font-size: 11px; }
+.photo-empty .icon { width: 26px; height: 26px; }
+.save-button { border-radius: var(--radius-pill); box-shadow: none; background: var(--color-primary); }
+@media(max-width:620px) { .photo-upload { width: 90px; height: 90px; flex-basis: 90px; } .profile-form, .two-cols { grid-template-columns: 1fr; } .field { min-height: 44px; font-size: 14px; } }

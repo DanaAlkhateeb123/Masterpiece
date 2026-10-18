@@ -1,34 +1,351 @@
-﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Nostalgia | Give Items a Second Story</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../shared/global.css">
     <link rel="stylesheet" href="../shared/components.css">
     <link rel="stylesheet" href="../navbar/navbar.css">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../shared/headings.css">
 </head>
-<body>
+<body class="home-page" data-scroll-progress>
 
     <div id="site-header"></div>
 
-    <main class="container page-section">
-        <span class="badge">Pre-loved. Timeless. Yours.</span>
+    <main class="home">
 
-        <h1>Give Items a Second Story.</h1>
+        <!-- ===== 1. Hero (dark) ===== -->
+        <section class="home-dark home-hero" id="top" aria-labelledby="home-hero-title">
+            <span class="hero-light" aria-hidden="true"></span>
+            <span class="hero-orb hero-orb--1" aria-hidden="true"></span>
+            <span class="hero-orb hero-orb--2" aria-hidden="true"></span>
+            <span class="hero-ring hero-ring--1" aria-hidden="true"></span>
+            <span class="hero-ring hero-ring--2" aria-hidden="true"></span>
+            <span class="hero-dust" aria-hidden="true"><i style="--x:8%;--y:72%;--s:3px;--d:11s;--l:-1s"></i><i style="--x:18%;--y:40%;--s:2px;--d:14s;--l:-6s"></i><i style="--x:30%;--y:84%;--s:4px;--d:12s;--l:-3s"></i><i style="--x:44%;--y:28%;--s:2px;--d:16s;--l:-9s"></i><i style="--x:56%;--y:78%;--s:3px;--d:13s;--l:-5s"></i><i style="--x:66%;--y:46%;--s:2px;--d:15s;--l:-2s"></i><i style="--x:76%;--y:86%;--s:4px;--d:12s;--l:-8s"></i><i style="--x:86%;--y:34%;--s:3px;--d:14s;--l:-4s"></i><i style="--x:24%;--y:60%;--s:2px;--d:17s;--l:-11s"></i><i style="--x:92%;--y:66%;--s:2px;--d:15s;--l:-7s"></i></span>
 
-        <p class="muted">
-            Discover pre-loved treasures, sell what you no longer need,
-            and find unique pieces with a story to tell.
-        </p>
+            <div class="container home-hero-inner">
+                <div class="hero-copy">
+                    <span class="hero-chip">Pre-loved. Timeless. Yours.</span>
+                    <h1 id="home-hero-title"><span class="w w1">Give</span> <span class="w w2">Items</span> <span class="w w3">a</span> <em><span class="w w4">Second</span> <span class="w w5">Story.</span></em></h1>
+                    <p>Discover pre-loved treasures, sell what you no longer need, and find unique pieces with a story to tell.</p>
+                    <div class="hero-actions">
+                        <a class="btn-primary hero-btn" href="../categories/categories.html">Explore Collection <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></a>
+                        <a class="btn-secondary hero-btn hero-btn--ghost" href="../selling/selling.html">Start Selling</a>
+                    </div>
+                </div>
+            </div>
 
-        <a href="../categories/categories.html" class="btn-primary">
-            Explore Collection
-        </a>
+            <dl class="hero-stats">
+                <div><dd><span data-count="12400" data-suffix="+">12,400+</span></dd><dt>Pieces re-homed</dt></div>
+                <div><dd><span data-count="4.9" data-decimals="1">4.9</span> / 5</dd><dt>Average rating</dt></div>
+                <div><dd><span data-count="100" data-suffix="%">100%</span></dd><dt>Secure checkout</dt></div>
+            </dl>
+            <a class="hero-scroll" href="#categories" aria-label="Scroll to categories"><i></i></a>
+        </section>
+
+        <!-- gold ticker -->
+        <div class="home-ticker" aria-hidden="true">
+            <div class="ticker-track"><span>Verified sellers</span><span>Secure payments</span><span>Free to list</span><span>Insured delivery</span><span>A second life for good things</span><span>Verified sellers</span><span>Secure payments</span><span>Free to list</span><span>Insured delivery</span><span>A second life for good things</span><span>Verified sellers</span><span>Secure payments</span><span>Free to list</span><span>Insured delivery</span><span>A second life for good things</span><span>Verified sellers</span><span>Secure payments</span><span>Free to list</span><span>Insured delivery</span><span>A second life for good things</span></div>
+        </div>
+
+        <!-- ===== 2. Shop by category (light) ===== -->
+        <section class="home-section home-light" id="categories" aria-labelledby="categories-title">
+            <div class="container">
+                <header class="home-head" data-reveal="up">
+                    <p class="eyebrow">Explore</p>
+                    <h2 id="categories-title">Shop by <span>Category</span></h2>
+                    <p>From timeless antiques to everyday finds, discover pieces with a story, chosen for every space and style.</p>
+                </header>
+                <div class="tile-grid">
+                <a class="tile" href="../antiqes/antiqes.html" data-reveal="zoom">
+                    <span class="tile-frame">
+                        <img src="https://img.freepik.com/premium-photo/images-antique-decor_1057389-22964.jpg" alt="Antique oil painting in a gilded frame" loading="lazy">
+                        <span class="tile-shade"></span>
+                        <span class="tile-copy">
+                            <small>01 · Objects with a past</small>
+                            <strong>Antiques</strong>
+                            <span class="tile-more">Explore <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></span>
+                        </span>
+                    </span>
+                </a>
+                <a class="tile" href="../categories/categories.html?category=furniture" data-reveal="zoom">
+                    <span class="tile-frame">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=700&q=85" alt="Warm living room with vintage furniture" loading="lazy">
+                        <span class="tile-shade"></span>
+                        <span class="tile-copy">
+                            <small>02 · Rooms with history</small>
+                            <strong>Furniture</strong>
+                            <span class="tile-more">Explore <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></span>
+                        </span>
+                    </span>
+                </a>
+                <a class="tile" href="../categories/categories.html?category=electronics" data-reveal="zoom">
+                    <span class="tile-frame">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=85" alt="Laptops and devices on a desk" loading="lazy">
+                        <span class="tile-shade"></span>
+                        <span class="tile-copy">
+                            <small>03 · The modern edit</small>
+                            <strong>Electronics</strong>
+                            <span class="tile-more">Explore <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></span>
+                        </span>
+                    </span>
+                </a>
+                <a class="tile" href="../categories/categories.html?category=clothes" data-reveal="zoom">
+                    <span class="tile-frame">
+                        <img src="https://th.bing.com/th/id/OIP.uxGPwZWeu1UDZopA23BeUgHaE8?w=277&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Clothes on a rail in a boutique" loading="lazy">
+                        <span class="tile-shade"></span>
+                        <span class="tile-copy">
+                            <small>04 · Dressed in stories</small>
+                            <strong>Clothes</strong>
+                            <span class="tile-more">Explore <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></span>
+                        </span>
+                    </span>
+                </a>
+                </div>
+                <div class="home-cta" data-reveal="up">
+                    <a class="btn-secondary btn--pill home-outline" href="../categories/categories.html">View All Categories <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3. Featured listings (dark) ===== -->
+        <section class="home-dark home-section" id="featured" aria-labelledby="featured-title">
+            <div class="container">
+                <header class="home-head home-head--row" data-reveal="up">
+                    <div>
+                        <p class="eyebrow">Featured listings</p>
+                        <h2 id="featured-title">Handpicked <span class="heading-accent">treasures</span></h2>
+                    </div>
+                    <a class="view-all" href="../categories/categories.html">View all listings <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></a>
+                </header>
+                <div class="piece-grid">
+                <article class="piece" data-reveal="up">
+                    <div class="piece-media">
+                        <img src="https://i.etsystatic.com/64268298/c/1086/1086/0/181/il/b69725/8599642205/il_600x600.8599642205_tanc.jpg" alt="Ornate antique bronze clock" loading="lazy">
+                        <span class="piece-badge">Featured</span>
+                        <button class="favorite-button" type="button" aria-label="Save Vintage Wooden Clock" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#heart"/></svg></button>
+                    </div>
+                    <div class="piece-body">
+                        <p class="piece-cat">Antique · Home Decor</p>
+                        <h3 class="piece-title"><a href="../item-details/item-details.html?item=vintage-clock">Vintage Wooden Clock</a></h3>
+                        <p class="piece-loc"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#map-pin"/></svg> Amman, Jordan</p>
+                        <div class="piece-foot"><strong>85 JD</strong><span class="piece-link">View details <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></span></div>
+                    </div>
+                </article>
+                <article class="piece" data-reveal="up">
+                    <div class="piece-media">
+                        <img src="https://i.etsystatic.com/66105071/r/il/b477b5/8535133619/il_600x600.8535133619_2mo2.jpg" alt="Decorative antique ceramic vase" loading="lazy">
+                        <span class="piece-badge">Almost gone</span>
+                        <button class="favorite-button" type="button" aria-label="Save Antique Vase" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#heart"/></svg></button>
+                    </div>
+                    <div class="piece-body">
+                        <p class="piece-cat">Antique · Decor</p>
+                        <h3 class="piece-title"><a href="../item-details/item-details.html?item=antique-vase">Antique Vase</a></h3>
+                        <p class="piece-loc"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#map-pin"/></svg> Amman, Jordan</p>
+                        <div class="piece-foot"><strong>120 JD</strong><span class="piece-link">View details <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></span></div>
+                    </div>
+                </article>
+                <article class="piece" data-reveal="up">
+                    <div class="piece-media">
+                        <img src="https://a.1stdibscdn.com/antique-english-landscape-oil-painting-by-w-a-currie-ra-19th-c-for-sale-picture-8/f_23963/1547130368772/1160_2_master.jpg?width=768" alt="Antique landscape oil painting in an ornate gold frame" loading="lazy">
+                        <span class="piece-badge">Popular</span>
+                        <button class="favorite-button" type="button" aria-label="Save Old Landscape Painting" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#heart"/></svg></button>
+                    </div>
+                    <div class="piece-body">
+                        <p class="piece-cat">Antique · Art</p>
+                        <h3 class="piece-title"><a href="../item-details/item-details.html?item=old-painting">Old Landscape Painting</a></h3>
+                        <p class="piece-loc"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#map-pin"/></svg> Irbid, Jordan</p>
+                        <div class="piece-foot"><strong>200 JD</strong><span class="piece-link">View details <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></span></div>
+                    </div>
+                </article>
+                <article class="piece" data-reveal="up">
+                    <div class="piece-media">
+                        <img class="piece-image--complete" src="https://i.etsystatic.com/25780867/r/il/1889ba/7194662175/il_fullxfull.7194662175_hy1n.jpg" alt="Ornate gold filigree statement necklace on a black background" loading="lazy">
+                        <span class="piece-badge">Rare find</span>
+                        <button class="favorite-button" type="button" aria-label="Save Heirloom Statement Necklace" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#heart"/></svg></button>
+                    </div>
+                    <div class="piece-body">
+                        <p class="piece-cat">Antique · Jewellery</p>
+                        <h3 class="piece-title"><a href="../item-details/item-details.html?item=heirloom-necklace">Heirloom Statement Necklace</a></h3>
+                        <p class="piece-loc"><svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#map-pin"/></svg> Amman, Jordan</p>
+                        <div class="piece-foot"><strong>320 JD</strong><span class="piece-link">View details <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></span></div>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 4. Why Nostalgia (light) ===== -->
+        <section class="home-section home-light home-light--alt" id="why-nostalgia" aria-labelledby="why-title">
+            <div class="container">
+                <header class="home-head" data-reveal="up">
+                    <p class="eyebrow">Why Nostalgia</p>
+                    <h2 id="why-title">A calmer, kinder way to <span>buy and sell</span></h2>
+                    <p>Everything you need to find, sell and love pre-owned pieces with confidence.</p>
+                </header>
+                <div class="why-grid">
+                <article class="why-card" data-reveal="up">
+                    <span class="why-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons/why-icons.svg#verified"/></svg></span>
+                    <h3>Verified sellers</h3>
+                    <p>Every seller is reviewed before listing, so you can buy with confidence.</p>
+                </article>
+                <article class="why-card" data-reveal="up">
+                    <span class="why-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons/why-icons.svg#payment"/></svg></span>
+                    <h3>Secure payments</h3>
+                    <p>Your money is held safely until the item reaches you and you are happy.</p>
+                </article>
+                <article class="why-card" data-reveal="up">
+                    <span class="why-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons/why-icons.svg#conversation"/></svg></span>
+                    <h3>Chat directly</h3>
+                    <p>Ask questions and agree details inside Nostalgia. Your number stays private.</p>
+                </article>
+                <article class="why-card" data-reveal="up">
+                    <span class="why-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons/why-icons.svg#listing"/></svg></span>
+                    <h3>Free to list</h3>
+                    <p>List an item in minutes. Share the story, we handle the rest.</p>
+                </article>
+                <article class="why-card" data-reveal="up">
+                    <span class="why-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons/why-icons.svg#second-life"/></svg></span>
+                    <h3>A second life</h3>
+                    <p>Every purchase keeps good things in use and out of landfill.</p>
+                </article>
+                <article class="why-card" data-reveal="up">
+                    <span class="why-icon"><svg class="icon" aria-hidden="true"><use href="../assets/icons/why-icons.svg#delivery"/></svg></span>
+                    <h3>Careful delivery</h3>
+                    <p>Fragile pieces travel wrapped, tracked and insured.</p>
+                </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 5. Feedback marquee (dark) ===== -->
+        <section class="home-dark home-section home-feedback" aria-labelledby="feedback-title">
+            <div class="container">
+                <header class="home-head home-head--row" data-reveal="up">
+                    <div>
+                        <p class="eyebrow">Community feedback</p>
+                        <h2 id="feedback-title">Words from our <span class="heading-accent">members</span></h2>
+                    </div>
+                    <div class="fb-summary">
+                        <span class="fb-score">4.9</span>
+                        <span><span class="fb-stars">★★★★★</span><small>Average rating from our members</small></span>
+                        <a class="view-all" href="../feedback/feedback.html">Share your experience <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></a>
+                    </div>
+                </header>
+            </div>
+            <div class="fb-marquee" data-reveal="soft" aria-label="Member testimonials, moving slowly. Hover to pause.">
+                <div class="fb-track">
+                    <figure class="fb-card" tabindex="0">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“I was nervous buying second-hand online. The seller answered every question and it arrived wrapped like a gift.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Lina S.</strong><small>Bought a hand-knit sweater</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" tabindex="0">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Listed it on Sunday and it was gone by Tuesday. The buyer actually cared about its story.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Omar A.</strong><small>Sold a film camera</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" tabindex="0">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Honest photos, exactly as described. It now hangs in my hallway and everyone asks about it.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Maya K.</strong><small>Bought a vintage mirror</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" tabindex="0">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Messaging inside the site made everything easy. I never had to share my number.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/men/46.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Zaid O.</strong><small>Sold a set of books</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" tabindex="0">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“A piece I could never find in shops. Better quality than new, at a fraction of the price.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Rand H.</strong><small>Bought a leather jacket</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" tabindex="0">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Beautiful site, beautiful buyers. It feels like a community that values things made with care.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/women/47.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Sara A.</strong><small>Sold ceramics</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" tabindex="0">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Arrived safe and ticking. The seller even wrote me a little note about where it came from.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/women/49.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Dana K.</strong><small>Bought a mantel clock</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" tabindex="0">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Fair, simple and calm. Payment was held until the lamp arrived, and I was paid the next day.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Hadi M.</strong><small>Sold a table lamp</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" aria-hidden="true">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“I was nervous buying second-hand online. The seller answered every question and it arrived wrapped like a gift.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Lina S.</strong><small>Bought a hand-knit sweater</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" aria-hidden="true">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Listed it on Sunday and it was gone by Tuesday. The buyer actually cared about its story.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Omar A.</strong><small>Sold a film camera</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" aria-hidden="true">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Honest photos, exactly as described. It now hangs in my hallway and everyone asks about it.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Maya K.</strong><small>Bought a vintage mirror</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" aria-hidden="true">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Messaging inside the site made everything easy. I never had to share my number.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/men/46.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Zaid O.</strong><small>Sold a set of books</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" aria-hidden="true">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“A piece I could never find in shops. Better quality than new, at a fraction of the price.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Rand H.</strong><small>Bought a leather jacket</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" aria-hidden="true">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Beautiful site, beautiful buyers. It feels like a community that values things made with care.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/women/47.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Sara A.</strong><small>Sold ceramics</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" aria-hidden="true">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Arrived safe and ticking. The seller even wrote me a little note about where it came from.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/women/49.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Dana K.</strong><small>Bought a mantel clock</small></span></figcaption>
+                    </figure>
+                    <figure class="fb-card" aria-hidden="true">
+                        <div class="fb-stars">★★★★★</div>
+                        <blockquote>“Fair, simple and calm. Payment was held until the lamp arrived, and I was paid the next day.”</blockquote>
+                        <figcaption><span class="avatar fb-avatar"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt="" loading="lazy" width="44" height="44"></span><span><strong>Hadi M.</strong><small>Sold a table lamp</small></span></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 6. Our story (light) ===== -->
+        <section class="home-section home-light" aria-labelledby="story-title">
+            <div class="container story-grid">
+                <div class="story-copy" data-reveal="left">
+                    <p class="eyebrow">Our story</p>
+                    <h2 id="story-title">Turn unused items into something <span class="heading-accent">usefull</span> again. </h2>
+                    <p>Nostalgia was created to make buying and selling pre-loved items simple and worthwhile. Instead of letting useful things go to waste,</p>
+                    <p>sellers can turn items they no longer need into extra value, while buyers discover pieces they want at a better price.</p>
+                    <a class="btn-primary hero-btn story-btn" href="../about/about.html">Read Our Story <svg class="icon" aria-hidden="true"><use href="../assets/icons/icons.svg#arrow-right"/></svg></a>
+                </div>
+                <aside class="story-card" data-reveal="right">
+                    <blockquote>Good things deserve to stay in use.</blockquote>
+                    <p class="story-sign">The Nostalgia promise</p>
+                    <dl class="story-stats">
+                        <div><dd data-count="12400" data-suffix="+">12,400+</dd><dt>Pieces re-homed</dt></div>
+                        <div><dd data-count="4.9" data-decimals="1">4.9</dd><dt>Average rating</dt></div>
+                        <div><dd data-count="38">38</dd><dt>Cities across Jordan</dt></div>
+                    </dl>
+                </aside>
+            </div>
+        </section>
+
     </main>
 
     <script src="../navbar/navbar.js"></script>
@@ -37,6 +354,3 @@
     <script src="../shared/motion.js" defer></script>
 </body>
 </html>
-
-
-

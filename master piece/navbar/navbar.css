@@ -1,13 +1,19 @@
-﻿#site-header { min-height: 82px; }
-.site-header {
+#site-header {
     position: sticky;
     top: 0;
+    z-index: var(--z-nav);
+    min-height: 84px;
+    padding-top: 0;
+    flex-shrink: 0;
+}
+.site-header {
+    position: relative;
     z-index: 1000;
     isolation: isolate;
-    width: min(1440px, calc(100% - 32px));
-    margin: 12px auto 0;
+    width: 100%;
+    margin: 0 auto;
     border: 1px solid color-mix(in srgb, var(--color-accent-light) 52%, transparent);
-    border-radius: 20px;
+    border-radius: 0;
     background: var(--color-primary);
     box-shadow: 0 18px 42px color-mix(in srgb, var(--color-primary) 30%, transparent), 0 5px 14px color-mix(in srgb, var(--color-primary) 18%, transparent), inset 0 1px 0 color-mix(in srgb, var(--color-white) 28%, transparent), inset 0 -1px 0 color-mix(in srgb, var(--color-primary-dark) 35%, transparent);
     -webkit-backdrop-filter: blur(22px) saturate(155%);
@@ -119,7 +125,7 @@
     background: transparent;
     color: var(--color-primary);
 }
-.nav-search svg, .nav-favorites svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.nav-search svg, .nav-favorites svg, .nav-notifications svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
 .nav-actions { display: flex; order: 3; flex: 0 0 auto; align-items: center; gap: 16px; }
 .nav-sign-in[hidden], .nav-user-trigger[hidden] { display: none !important; }
 .nav-user-trigger { display: inline-flex; align-items: center; gap: 9px; padding: 4px 10px 4px 5px; border: 1px solid color-mix(in srgb, var(--color-accent-light) 38%, transparent); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--color-white) 9%, transparent); color: var(--color-white); font: inherit; cursor: pointer; transition: background .2s ease, border-color .2s ease; }
@@ -162,7 +168,8 @@
     border: 0;
 }
 @media (max-width: 1000px) {
-    #site-header { min-height: 132px; }
+    :root { --nav-offset: 166px; }
+    #site-header { min-height: 148px; }
     .nav-container { min-height: 76px; flex-wrap: wrap; gap: 12px 20px; padding-block: 10px; }
     .nav-brand { order: 0; margin-right: auto; }
     .nav-links { margin-left: 0; }
@@ -242,3 +249,12 @@
 }
 
 .nav-user-trigger:hover { transform: translateY(-1px); }
+
+/* Notification bell beside Favorites. */
+.nav-notifications { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid transparent; border-radius: 50%; background: transparent; color: var(--color-white); transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
+.nav-notifications svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nav-notifications:hover { transform: translateY(-1px); border-color: color-mix(in srgb, var(--color-accent-light) 42%, transparent); background: color-mix(in srgb, var(--color-white) 12%, transparent); color: var(--color-accent-light); }
+.nav-notifications:active, .nav-notifications.active, .nav-notifications.active:hover { transform: none; border-color: transparent; background: transparent; color: var(--color-accent-light); }
+.nav-notifications:active svg, .nav-notifications.active svg { fill: currentColor; }
+.nav-notifications:focus-visible { outline: 2px solid var(--color-accent-light); outline-offset: 3px; }
+.nav-favorites.nav-notifications.active svg { fill: none; }
